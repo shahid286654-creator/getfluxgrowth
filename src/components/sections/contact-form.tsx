@@ -38,11 +38,11 @@ export function ContactForm() {
     <form onSubmit={handleSubmit} className="glass-card space-y-6 rounded-2xl p-8">
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
         <div className="space-y-2">
-          <Label htmlFor="name">Full name</Label>
+          <Label htmlFor="name">Name</Label>
           <Input id="name" name="name" placeholder="Jane Cooper" required />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="email">Work email</Label>
+          <Label htmlFor="email">Email</Label>
           <Input
             id="email"
             name="email"
@@ -53,19 +53,13 @@ export function ContactForm() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-        <div className="space-y-2">
-          <Label htmlFor="company">Company</Label>
-          <Input id="company" name="company" placeholder="Company name" />
-        </div>
-        <div className="space-y-2">
-          <Label htmlFor="budget">Monthly budget</Label>
-          <Input id="budget" name="budget" placeholder="$1,500 - $3,500" />
-        </div>
+      <div className="space-y-2">
+        <Label htmlFor="company">Company</Label>
+        <Input id="company" name="company" placeholder="Company name" />
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="message">What would you like to automate?</Label>
+        <Label htmlFor="message">Message</Label>
         <Textarea
           id="message"
           name="message"

@@ -4,13 +4,13 @@ export const siteConfig = {
   description:
     "GetFluxGrowth designs and builds custom AI automation systems — from intelligent lead generation to workflow agents — that help businesses save time, cut costs, and scale faster.",
   url: "https://getfluxgrowth.com",
-  email: "hello@getfluxgrowth.com",
-  phone: "+1 (415) 555-0134",
-  location: "San Francisco, CA · Remote-first, serving clients worldwide",
+  email: "contact@fluxgrowth.io",
+  whatsappNumber: "917701977003",
+  whatsappDisplay: "+91 77019 77003",
+  whatsappLink: "https://wa.me/917701977003",
   social: {
-    twitter: "https://twitter.com/getfluxgrowth",
-    linkedin: "https://linkedin.com/company/getfluxgrowth",
-    instagram: "https://instagram.com/getfluxgrowth",
+    linkedin: "https://www.linkedin.com/in/shahid-anwar-5a3253324/",
+    instagram: "https://www.instagram.com/learn.withshahid/?hl=en",
   },
 } as const;
 

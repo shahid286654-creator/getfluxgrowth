@@ -2,15 +2,9 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles, TrendingUp, Users, Zap } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/shared/container";
-
-const stats = [
-  { icon: Users, label: "Leads sourced monthly", value: "10,000+" },
-  { icon: Zap, label: "Hours automated / week", value: "500+" },
-  { icon: TrendingUp, label: "Avg. pipeline growth", value: "40%" },
-];
 
 export function Hero() {
   return (
@@ -76,23 +70,6 @@ export function Hero() {
           >
             <Link href="/portfolio">See Our Work</Link>
           </Button>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="glass-card mt-16 grid w-full max-w-3xl grid-cols-1 gap-6 rounded-2xl px-8 py-8 sm:grid-cols-3"
-        >
-          {stats.map((stat) => (
-            <div key={stat.label} className="flex flex-col items-center gap-2">
-              <div className="flex size-10 items-center justify-center rounded-full bg-brand-500/10 text-brand-300">
-                <stat.icon className="size-5" />
-              </div>
-              <div className="text-2xl font-semibold">{stat.value}</div>
-              <div className="text-xs text-muted-foreground">{stat.label}</div>
-            </div>
-          ))}
         </motion.div>
       </Container>
     </section>

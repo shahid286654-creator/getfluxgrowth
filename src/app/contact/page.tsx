@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
-import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { Mail, MessageCircle } from "lucide-react";
 import { Container } from "@/components/shared/container";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { FadeIn } from "@/components/shared/fade-in";
+import { FounderPhoto } from "@/components/shared/founder-photo";
+import { LinkedinIcon } from "@/components/shared/social-icons";
 import { ContactForm } from "@/components/sections/contact-form";
+import { founder } from "@/lib/data/founder";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -14,10 +17,24 @@ export const metadata: Metadata = {
 };
 
 const contactDetails = [
-  { icon: Mail, label: "Email", value: siteConfig.email, href: `mailto:${siteConfig.email}` },
-  { icon: Phone, label: "Phone", value: siteConfig.phone, href: `tel:${siteConfig.phone.replace(/[^+\d]/g, "")}` },
-  { icon: MapPin, label: "Location", value: siteConfig.location },
-  { icon: Clock, label: "Response time", value: "Within 1 business day" },
+  {
+    icon: Mail,
+    label: "Email",
+    value: siteConfig.email,
+    href: `mailto:${siteConfig.email}`,
+  },
+  {
+    icon: MessageCircle,
+    label: "WhatsApp",
+    value: siteConfig.whatsappDisplay,
+    href: siteConfig.whatsappLink,
+  },
+  {
+    icon: LinkedinIcon,
+    label: "LinkedIn",
+    value: "Connect on LinkedIn",
+    href: siteConfig.social.linkedin,
+  },
 ];
 
 export default function ContactPage() {
@@ -35,31 +52,51 @@ export default function ContactPage() {
 
         <div className="mt-16 grid grid-cols-1 gap-10 lg:grid-cols-5 lg:items-start">
           <FadeIn className="lg:col-span-2">
-            <div className="glass-card space-y-6 rounded-2xl p-8">
-              {contactDetails.map((detail) => (
-                <div key={detail.label} className="flex items-start gap-4">
-                  <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-brand-500/10 text-brand-300">
-                    <detail.icon className="size-4.5" />
+            <div className="glass-card space-y-8 rounded-2xl p-8">
+              <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:text-left">
+                <FounderPhoto
+                  src="/images/shahid-anwar.jpg"
+                  alt={founder.name}
+                  size="md"
+                />
+                <div>
+                  <div className="text-base font-semibold text-foreground">
+                    {founder.name}
                   </div>
-                  <div>
-                    <div className="text-xs text-muted-foreground uppercase tracking-wide">
-                      {detail.label}
-                    </div>
-                    {detail.href ? (
-                      <a
-                        href={detail.href}
-                        className="text-sm font-medium text-foreground hover:text-brand-300"
-                      >
-                        {detail.value}
-                      </a>
-                    ) : (
-                      <div className="text-sm font-medium text-foreground">
-                        {detail.value}
-                      </div>
-                    )}
+                  <div className="mt-1 text-xs font-medium text-brand-300">
+                    {founder.role}
                   </div>
                 </div>
-              ))}
+              </div>
+
+              <div className="space-y-6 border-t border-white/10 pt-6">
+                {contactDetails.map((detail) => (
+                  <div key={detail.label} className="flex items-start gap-4">
+                    <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-brand-500/10 text-brand-300">
+                      <detail.icon className="size-4.5" />
+                    </div>
+                    <div>
+                      <div className="text-xs text-muted-foreground uppercase tracking-wide">
+                        {detail.label}
+                      </div>
+                      {detail.href ? (
+                        <a
+                          href={detail.href}
+                          target={detail.label === "LinkedIn" ? "_blank" : undefined}
+                          rel={detail.label === "LinkedIn" ? "noopener noreferrer" : undefined}
+                          className="text-sm font-medium text-foreground hover:text-brand-300"
+                        >
+                          {detail.value}
+                        </a>
+                      ) : (
+                        <div className="text-sm font-medium text-foreground">
+                          {detail.value}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </FadeIn>
 

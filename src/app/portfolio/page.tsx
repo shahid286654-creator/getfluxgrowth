@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
-import { Badge } from "@/components/ui/badge";
 import { Container } from "@/components/shared/container";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { FadeInStagger, FadeInStaggerItem } from "@/components/shared/fade-in";
+import { ProjectCard } from "@/components/shared/project-card";
 import { CtaSection } from "@/components/sections/cta-section";
-import { portfolioItems } from "@/lib/data/portfolio";
+import { portfolioProjects } from "@/lib/data/portfolio";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Portfolio",
   description:
-    "See how GetFluxGrowth's AI automation systems have driven measurable results for businesses in logistics, real estate, healthcare, SaaS, e-commerce, and financial services.",
+    "Featured demo projects showcasing GetFluxGrowth's web development and design work.",
   alternates: { canonical: `${siteConfig.url}/portfolio` },
 };
 
@@ -24,8 +24,8 @@ export default function PortfolioPage() {
         <Container>
           <SectionHeading
             eyebrow="Portfolio"
-            title="Automation systems, proven in production"
-            description="A selection of the AI systems we've designed and shipped for clients across industries — each one built to solve a specific, measurable business problem."
+            title="Featured Projects"
+            description="A selection of demo projects showcasing my web development and design work."
           />
         </Container>
       </section>
@@ -33,41 +33,9 @@ export default function PortfolioPage() {
       <section className="pb-24 sm:pb-32">
         <Container>
           <FadeInStagger className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-            {portfolioItems.map((item) => (
-              <FadeInStaggerItem key={item.slug}>
-                <article className="glass-card flex h-full flex-col rounded-2xl p-8">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <Badge variant="secondary" className="bg-brand-500/10 text-brand-300">
-                      {item.industry}
-                    </Badge>
-                    {item.tags.map((tag) => (
-                      <Badge key={tag} variant="outline" className="border-white/15">
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
-                  <h2 className="mt-5 text-xl font-semibold tracking-tight">
-                    {item.title}
-                  </h2>
-                  <p className="mt-1 text-sm font-medium text-brand-300">
-                    {item.client}
-                  </p>
-                  <p className="mt-3 text-sm text-muted-foreground text-pretty">
-                    {item.summary}
-                  </p>
-                  <div className="mt-8 grid grid-cols-3 gap-4 border-t border-white/10 pt-6">
-                    {item.results.map((result) => (
-                      <div key={result.label}>
-                        <div className="text-xl font-semibold text-foreground">
-                          {result.value}
-                        </div>
-                        <div className="mt-1 text-xs text-muted-foreground">
-                          {result.label}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </article>
+            {portfolioProjects.map((project) => (
+              <FadeInStaggerItem key={project.slug}>
+                <ProjectCard project={project} />
               </FadeInStaggerItem>
             ))}
           </FadeInStagger>

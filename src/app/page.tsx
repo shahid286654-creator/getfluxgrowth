@@ -1,5 +1,4 @@
 import { Hero } from "@/components/sections/hero";
-import { TrustedBy } from "@/components/sections/trusted-by";
 import { ServicesSection } from "@/components/sections/services-section";
 import { ProcessSection } from "@/components/sections/process-section";
 import { PortfolioSection } from "@/components/sections/portfolio-section";
@@ -12,7 +11,6 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <TrustedBy />
       <ServicesSection />
       <ProcessSection />
       <PortfolioSection />
