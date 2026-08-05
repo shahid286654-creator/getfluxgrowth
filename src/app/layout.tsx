@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { JsonLd } from "@/components/shared/json-ld";
+import { GoogleAnalytics } from "@/components/analytics/google-analytics";
 import { siteConfig } from "@/lib/site";
 import {
   organizationSchema,
@@ -80,6 +81,7 @@ export default function RootLayout({
       className={`dark ${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
+        <GoogleAnalytics />
         <JsonLd data={organizationSchema()} />
         <JsonLd data={websiteSchema()} />
         <JsonLd data={professionalServiceSchema()} />
