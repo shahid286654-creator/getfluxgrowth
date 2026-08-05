@@ -4,6 +4,21 @@ const nextConfig: NextConfig = {
   output: "standalone",
   poweredByHeader: false,
   compress: true,
+  serverExternalPackages: ["sanity", "@sanity/vision", "next-sanity"],
+  // The Sanity Studio dependency tree ships thousands of source maps, type
+  // declarations, and docs files that are never required at runtime but
+  // still get walked and copied into the standalone output by file tracing,
+  // which was making production builds take several minutes longer than
+  // necessary (and is the likely cause of deploy timeouts).
+  outputFileTracingExcludes: {
+    "*": [
+      "**/*.map",
+      "**/*.d.ts",
+      "**/*.d.ts.map",
+      "**/README.md",
+      "**/CHANGELOG.md",
+    ],
+  },
   experimental: {
     optimizePackageImports: ["radix-ui"],
     globalNotFound: true,
