@@ -1,8 +1,20 @@
 export const siteConfig = {
   name: "GetFluxGrowth",
   tagline: "AI Automation for Growing Businesses",
+  title: "GetFluxGrowth | AI Automation, Website Development & Digital Marketing",
   description:
-    "GetFluxGrowth designs and builds custom AI automation systems — from intelligent lead generation to workflow agents — that help businesses save time, cut costs, and scale faster.",
+    "GetFluxGrowth helps businesses grow with AI Automation, Website Development, SEO, Digital Marketing, AI Chatbots and Workflow Automation.",
+  keywords: [
+    "AI Automation",
+    "Website Development",
+    "Next.js Developer",
+    "Shopify Developer",
+    "WordPress Developer",
+    "SEO Expert",
+    "Digital Marketing",
+    "AI Chatbot",
+    "Workflow Automation",
+  ],
   url: "https://getfluxgrowth.com",
   email: "contact@fluxgrowth.io",
   whatsappNumber: "917701977003",

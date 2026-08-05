@@ -6,12 +6,14 @@ export function SectionHeading({
   title,
   description,
   align = "center",
+  as: Heading = "h2",
   className,
 }: {
   eyebrow?: string;
   title: string;
   description?: string;
   align?: "center" | "left";
+  as?: "h1" | "h2";
   className?: string;
 }) {
   return (
@@ -27,14 +29,14 @@ export function SectionHeading({
           {eyebrow}
         </span>
       ) : null}
-      <h2
+      <Heading
         className={cn(
           "text-3xl font-semibold tracking-tight text-balance sm:text-4xl lg:text-5xl",
           align === "center" ? "max-w-3xl" : "max-w-2xl"
         )}
       >
         {title}
-      </h2>
+      </Heading>
       {description ? (
         <p
           className={cn(

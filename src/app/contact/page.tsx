@@ -5,16 +5,20 @@ import { SectionHeading } from "@/components/shared/section-heading";
 import { FadeIn } from "@/components/shared/fade-in";
 import { FounderPhoto } from "@/components/shared/founder-photo";
 import { LinkedinIcon } from "@/components/shared/social-icons";
+import { JsonLd } from "@/components/shared/json-ld";
 import { ContactForm } from "@/components/sections/contact-form";
 import { founder } from "@/lib/data/founder";
 import { siteConfig } from "@/lib/site";
+import { buildMetadata } from "@/lib/metadata";
+import { breadcrumbSchema } from "@/lib/schema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: "Contact",
   description:
     "Get in touch with GetFluxGrowth to book a free automation audit and see where AI can save your business the most time.",
-  alternates: { canonical: `${siteConfig.url}/contact` },
-};
+  path: "/contact",
+  keywords: ["Contact GetFluxGrowth", "Book a Strategy Call", "AI Automation Audit"],
+});
 
 const contactDetails = [
   {
@@ -40,11 +44,18 @@ const contactDetails = [
 export default function ContactPage() {
   return (
     <section className="relative overflow-hidden pt-20 pb-24 sm:pt-28 sm:pb-32">
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", url: siteConfig.url },
+          { name: "Contact", url: `${siteConfig.url}/contact` },
+        ])}
+      />
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute top-[-10%] left-1/2 h-[30rem] w-[56rem] -translate-x-1/2 rounded-full glow-purple blur-3xl" />
       </div>
       <Container>
         <SectionHeading
+          as="h1"
           eyebrow="Contact"
           title="Book your free automation audit"
           description="Tell us a bit about your business and where time is disappearing. We'll come back with a clear picture of what AI automation could do for you."

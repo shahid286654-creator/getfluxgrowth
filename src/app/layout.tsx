@@ -1,8 +1,14 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { JsonLd } from "@/components/shared/json-ld";
 import { siteConfig } from "@/lib/site";
+import {
+  organizationSchema,
+  professionalServiceSchema,
+  websiteSchema,
+} from "@/lib/schema";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -20,30 +26,26 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} — ${siteConfig.tagline}`,
+    default: siteConfig.title,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  keywords: [
-    "AI automation agency",
-    "AI lead generation",
-    "workflow automation",
-    "AI chatbots",
-    "business process automation",
-    "AI outreach",
-  ],
-  authors: [{ name: siteConfig.name }],
+  keywords: [...siteConfig.keywords],
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
   creator: siteConfig.name,
+  publisher: siteConfig.name,
+  alternates: { canonical: siteConfig.url },
   openGraph: {
     type: "website",
     url: siteConfig.url,
-    title: `${siteConfig.name} — ${siteConfig.tagline}`,
+    title: siteConfig.title,
     description: siteConfig.description,
     siteName: siteConfig.name,
+    locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} — ${siteConfig.tagline}`,
+    title: siteConfig.title,
     description: siteConfig.description,
   },
   robots: {
@@ -57,20 +59,15 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
-  icons: {
-    icon: "/favicon.ico",
-  },
 };
 
-const organizationJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: siteConfig.name,
-  url: siteConfig.url,
-  description: siteConfig.description,
-  email: siteConfig.email,
-  sameAs: Object.values(siteConfig.social),
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#9333ea",
+  colorScheme: "dark",
 };
+
 
 export default function RootLayout({
   children,
@@ -83,10 +80,9 @@ export default function RootLayout({
       className={`dark ${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
-        />
+        <JsonLd data={organizationSchema()} />
+        <JsonLd data={websiteSchema()} />
+        <JsonLd data={professionalServiceSchema()} />
         <div className="pointer-events-none fixed inset-0 -z-10 bg-grid [mask-image:radial-gradient(ellipse_80%_60%_at_50%_-10%,black,transparent)]" />
         <Navbar />
         <main className="flex-1">{children}</main>

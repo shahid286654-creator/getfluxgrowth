@@ -5,26 +5,43 @@ import { Button } from "@/components/ui/button";
 import { Container } from "@/components/shared/container";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { FadeIn } from "@/components/shared/fade-in";
+import { JsonLd } from "@/components/shared/json-ld";
 import { CtaSection } from "@/components/sections/cta-section";
 import { services } from "@/lib/data/services";
 import { siteConfig } from "@/lib/site";
+import { buildMetadata } from "@/lib/metadata";
+import { breadcrumbSchema } from "@/lib/schema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: "Services",
   description:
     "Explore GetFluxGrowth's AI automation services: lead generation, website audits, personalized outreach, workflow automation, AI agents, and CRM enrichment.",
-  alternates: { canonical: `${siteConfig.url}/services` },
-};
+  path: "/services",
+  keywords: [
+    "AI Automation Services",
+    "Workflow Automation",
+    "AI Chatbot",
+    "Lead Generation",
+    "CRM Enrichment",
+  ],
+});
 
 export default function ServicesPage() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", url: siteConfig.url },
+          { name: "Services", url: `${siteConfig.url}/services` },
+        ])}
+      />
       <section className="relative overflow-hidden pt-20 pb-16 sm:pt-28">
         <div className="pointer-events-none absolute inset-0 -z-10">
           <div className="absolute top-[-10%] left-1/2 h-[30rem] w-[56rem] -translate-x-1/2 rounded-full glow-purple blur-3xl" />
         </div>
         <Container>
           <SectionHeading
+            as="h1"
             eyebrow="Services"
             title="AI automation, built around your business"
             description="Every engagement starts with a free audit of your current workflow. From there, we design and build the exact automation systems that will move the needle fastest."

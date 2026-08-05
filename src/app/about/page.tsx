@@ -7,27 +7,39 @@ import { SectionHeading } from "@/components/shared/section-heading";
 import { FadeIn, FadeInStagger, FadeInStaggerItem } from "@/components/shared/fade-in";
 import { FounderPhoto } from "@/components/shared/founder-photo";
 import { LinkedinIcon } from "@/components/shared/social-icons";
+import { JsonLd } from "@/components/shared/json-ld";
 import { CtaSection } from "@/components/sections/cta-section";
 import { companyValues } from "@/lib/data/values";
 import { founder } from "@/lib/data/founder";
 import { siteConfig } from "@/lib/site";
+import { buildMetadata } from "@/lib/metadata";
+import { breadcrumbSchema, personSchema } from "@/lib/schema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: "About",
   description:
     "GetFluxGrowth is an AI automation agency helping businesses find leads, automate workflows, and scale without adding headcount.",
-  alternates: { canonical: `${siteConfig.url}/about` },
-};
+  path: "/about",
+  keywords: ["AI Automation Agency", "About GetFluxGrowth", "Shahid Anwar"],
+});
 
 export default function AboutPage() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", url: siteConfig.url },
+          { name: "About", url: `${siteConfig.url}/about` },
+        ])}
+      />
+      <JsonLd data={personSchema()} />
       <section className="relative overflow-hidden pt-20 pb-16 sm:pt-28">
         <div className="pointer-events-none absolute inset-0 -z-10">
           <div className="absolute top-[-10%] left-1/2 h-[30rem] w-[56rem] -translate-x-1/2 rounded-full glow-purple blur-3xl" />
         </div>
         <Container>
           <SectionHeading
+            as="h1"
             eyebrow="About Us"
             title="We build the AI systems your team wishes it had time to build"
             description="GetFluxGrowth was founded on a simple observation: most businesses don't have a lead problem, they have a time problem. We exist to give that time back."

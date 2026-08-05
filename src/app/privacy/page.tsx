@@ -2,22 +2,32 @@ import type { Metadata } from "next";
 import { Container } from "@/components/shared/container";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { FadeIn } from "@/components/shared/fade-in";
+import { JsonLd } from "@/components/shared/json-ld";
 import { siteConfig } from "@/lib/site";
+import { buildMetadata } from "@/lib/metadata";
+import { breadcrumbSchema } from "@/lib/schema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: "Privacy Policy",
   description: `Privacy Policy for ${siteConfig.name}.`,
-  alternates: { canonical: `${siteConfig.url}/privacy` },
-};
+  path: "/privacy",
+});
 
 export default function PrivacyPolicyPage() {
   return (
     <section className="relative overflow-hidden pt-20 pb-24 sm:pt-28 sm:pb-32">
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", url: siteConfig.url },
+          { name: "Privacy Policy", url: `${siteConfig.url}/privacy` },
+        ])}
+      />
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute top-[-10%] left-1/2 h-[30rem] w-[56rem] -translate-x-1/2 rounded-full glow-purple blur-3xl" />
       </div>
       <Container className="max-w-3xl">
         <SectionHeading
+          as="h1"
           align="left"
           eyebrow="Legal"
           title="Privacy Policy"
