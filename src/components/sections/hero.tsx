@@ -1,7 +1,4 @@
-"use client";
-
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/shared/container";
@@ -15,43 +12,23 @@ export function Hero() {
       </div>
 
       <Container className="flex flex-col items-center text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="glass-card inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm text-muted-foreground"
-        >
+        <div className="glass-card animate-in fade-in slide-in-from-bottom-3 fill-mode-backwards duration-500 ease-out inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm text-muted-foreground">
           <Sparkles className="size-3.5 text-brand-300" />
           AI-powered growth systems for modern businesses
-        </motion.div>
+        </div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="mt-8 max-w-4xl text-4xl font-semibold tracking-tight text-balance sm:text-6xl lg:text-7xl"
-        >
+        <h1 className="animate-in fade-in slide-in-from-bottom-4 fill-mode-backwards duration-600 delay-100 ease-out mt-8 max-w-4xl text-4xl font-semibold tracking-tight text-balance sm:text-6xl lg:text-7xl">
           Automate growth with{" "}
           <span className="text-gradient">AI that works while you sleep</span>
-        </motion.h1>
+        </h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-6 max-w-2xl text-lg text-muted-foreground text-pretty"
-        >
+        <p className="animate-in fade-in slide-in-from-bottom-4 fill-mode-backwards duration-600 delay-200 ease-out mt-6 max-w-2xl text-lg text-muted-foreground text-pretty">
           GetFluxGrowth builds custom AI automation systems that find leads,
           audit prospects, write outreach, and run your busywork — so your
           team can focus on closing deals, not chasing them.
-        </motion.p>
+        </p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-10 flex flex-col items-center gap-4 sm:flex-row"
-        >
+        <div className="animate-in fade-in slide-in-from-bottom-4 fill-mode-backwards duration-600 delay-300 ease-out mt-10 flex flex-col items-center gap-4 sm:flex-row">
           <Button
             asChild
             size="lg"
@@ -70,7 +47,7 @@ export function Hero() {
           >
             <Link href="/portfolio">See Our Work</Link>
           </Button>
-        </motion.div>
+        </div>
       </Container>
     </section>
   );

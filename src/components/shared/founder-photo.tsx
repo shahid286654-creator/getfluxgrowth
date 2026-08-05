@@ -7,6 +7,7 @@ interface FounderPhotoProps {
   alt?: string;
   className?: string;
   size?: "md" | "lg";
+  priority?: boolean;
 }
 
 export function FounderPhoto({
@@ -14,6 +15,7 @@ export function FounderPhoto({
   alt = "Founder photo",
   className,
   size = "lg",
+  priority = false,
 }: FounderPhotoProps) {
   const dimensions = size === "lg" ? "size-48 sm:size-56 md:size-64" : "size-24 sm:size-28";
 
@@ -29,7 +31,7 @@ export function FounderPhoto({
               fill
               sizes="(min-width: 768px) 16rem, (min-width: 640px) 14rem, 10rem"
               className="object-cover"
-              priority
+              priority={priority}
             />
           ) : (
             <div
