@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
   compress: true,
   experimental: {
     optimizePackageImports: ["radix-ui"],
+    globalNotFound: true,
   },
   images: {
     remotePatterns: [

@@ -2,42 +2,48 @@
 
 ## Architecture
 
-Two independent apps live in this repo:
+The CMS admin UI (Sanity Studio) is embedded directly in the Next.js app at
+**`/studio`**, via `next-sanity`'s `NextStudio` component
+(`src/app/studio/[[...tool]]/page.tsx`, configured by `sanity.config.ts` at the
+repo root). It's a normal Next.js route, deployed as part of the same Coolify
+build as the rest of the site — no separate deploy step for the Studio itself.
 
-- **`/` (repo root)** — the Next.js site. Reads *published* blog content from Sanity
-  at build/request time via `@sanity/client`. It never writes to Sanity and has no
-  admin UI of its own.
-- **`/studio`** — the Sanity Studio (the CMS admin UI). A completely separate app
-  with its own `package.json`/`node_modules`, deployed independently to Sanity's own
-  hosting (`*.sanity.studio`), not part of the Next.js build or the Coolify deploy.
+To keep it visually and structurally isolated from the marketing site (it's a
+full third-party admin SPA, not something that should inherit the site's
+Tailwind theme/fonts/nav), the app uses Next's multi-root-layout pattern:
+
+- `src/app/(site)/` — every public page (home, about, services, portfolio,
+  blog, contact, privacy, terms), with its own root layout
+  (`src/app/(site)/layout.tsx`) carrying the site's fonts, global CSS, Navbar,
+  and Footer. Route groups don't add a URL segment, so none of these URLs
+  changed.
+- `src/app/studio/` — its own independent root layout
+  (`src/app/studio/layout.tsx`), a bare `<html><body>` with no site chrome,
+  `robots: noindex/nofollow`, and `robots.txt` also disallows `/studio`.
+- `src/app/global-not-found.tsx` — a branded 404 for paths that don't match
+  either group (requires `experimental.globalNotFound: true` in
+  `next.config.ts`).
+
+The schema (Blog Post, Category, Author) lives at `src/sanity/schemaTypes/`
+and is shared by both the Studio (via `sanity.config.ts`) and the read-side
+GROQ queries in `src/sanity/queries.ts`.
 
 Project: `getfluxgrowth` — Project ID `5exkp2or`, dataset `production`.
 
-## Running the Studio locally
+## Using the Studio
 
-```
-cd studio
-npm install        # first time only
-npx sanity login    # first time only — opens a browser to authenticate
-npm run dev          # starts the Studio at http://localhost:3333
-```
-
-## Deploying the Studio
-
-The Studio is hosted by Sanity, separate from the website:
-
-```
-cd studio
-npx sanity deploy
-```
-
-The first time, it'll ask you to choose a `<your-name>.sanity.studio` hostname.
-After that, running `npx sanity deploy` again re-publishes your latest schema/UI
-changes to that same URL.
+Visit `https://getfluxgrowth.com/studio` (or `localhost:3000/studio` in dev).
+**First-time-only step**: Sanity requires you to explicitly authorize which
+hostnames are allowed to connect to your project before the login screen
+appears. The first time you open `/studio` on a new host, Sanity shows a
+"Connect this studio to your project" screen — click **Register this studio**
+(recommended for the production domain) or **Add development host** (for
+`localhost`), which opens sanity.io and asks you to log in with your Sanity
+account. This only has to be done once per hostname.
 
 ## How to add a blog post
 
-1. Open your deployed Studio URL (or `localhost:3333` in dev).
+1. Open `/studio` and log in with your Sanity account.
 2. If this is your first post, create an **Author** and a **Category** first
    (Content → Author / Category → `+ Create`) — a post requires both.
 3. Go to **Blog Post → Create new**, fill in:
@@ -107,9 +113,7 @@ without a token. If you ever switch it to private, generate a read token and set
 `SANITY_API_READ_TOKEN` in your deploy environment (Coolify) and in `.env.local`
 for local dev.
 
-## Deploying the website
-
-Unrelated to the Studio deploy above — this is the existing flow:
+## Deploying
 
 ```
 git add -A
@@ -117,8 +121,8 @@ git commit -m "..."
 git push origin main
 ```
 
-Pushing to `main` triggers Coolify's auto-deploy of the Next.js app (unchanged
-from before this integration). The Studio is never part of this deploy.
+Pushing to `main` triggers Coolify's auto-deploy of the Next.js app, which now
+includes `/studio` since it's just another route in the same build.
 
 ## Not yet built
 
