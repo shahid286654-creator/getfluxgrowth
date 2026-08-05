@@ -95,3 +95,34 @@ export function faqSchema(items: { question: string; answer: string }[]) {
     })),
   };
 }
+
+export function articleSchema(article: {
+  title: string;
+  description: string;
+  slug: string;
+  imageUrl: string;
+  authorName: string;
+  authorUrl?: string;
+  publishedAt: string;
+  updatedAt?: string;
+}) {
+  const url = `${siteConfig.url}/blog/${article.slug}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${url}/#article`,
+    headline: article.title,
+    description: article.description,
+    image: [article.imageUrl],
+    url,
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    datePublished: article.publishedAt,
+    dateModified: article.updatedAt ?? article.publishedAt,
+    author: {
+      "@type": "Person",
+      name: article.authorName,
+      ...(article.authorUrl ? { url: article.authorUrl } : {}),
+    },
+    publisher: { "@id": `${siteConfig.url}/#organization` },
+  };
+}

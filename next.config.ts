@@ -7,6 +7,15 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ["radix-ui"],
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.sanity.io",
+        pathname: "/images/**",
+      },
+    ],
+  },
   async headers() {
     // Scoped to the two public/ image directories, requiring a file
     // extension, so these rules only ever match static image files and
