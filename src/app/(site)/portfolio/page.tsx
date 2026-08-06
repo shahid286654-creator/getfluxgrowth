@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/shared/container";
 import { SectionHeading } from "@/components/shared/section-heading";
-import { FadeInStagger, FadeInStaggerItem } from "@/components/shared/fade-in";
-import { ProjectCard } from "@/components/shared/project-card";
+import { FadeIn } from "@/components/shared/fade-in";
+import { ProjectCaseStudy } from "@/components/shared/project-case-study";
 import { JsonLd } from "@/components/shared/json-ld";
 import { CtaSection } from "@/components/sections/cta-section";
 import { portfolioProjects } from "@/lib/data/portfolio";
@@ -13,7 +13,7 @@ import { breadcrumbSchema } from "@/lib/schema";
 export const metadata: Metadata = buildMetadata({
   title: "Portfolio",
   description:
-    "Featured demo projects showcasing GetFluxGrowth's web development and design work.",
+    "Featured demo projects showcasing GetFluxGrowth's web development and design work — the challenge, solution, and business impact behind each build.",
   path: "/portfolio",
   keywords: ["Website Development", "Next.js Developer", "Web Design Portfolio"],
 });
@@ -36,24 +36,41 @@ export default function PortfolioPage() {
             as="h1"
             eyebrow="Portfolio"
             title="Featured Projects"
-            description="A selection of demo projects showcasing my web development and design work."
+            description="A selection of demo projects showcasing our web development and design work — the challenge, the build, and the business outcome each one was designed to drive."
           />
         </Container>
       </section>
 
-      <section className="pb-24 sm:pb-32">
+      <section className="pb-16">
         <Container>
-          <FadeInStagger className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-            {portfolioProjects.map((project) => (
-              <FadeInStaggerItem key={project.slug}>
-                <ProjectCard project={project} />
-              </FadeInStaggerItem>
-            ))}
-          </FadeInStagger>
+          <FadeIn className="glass-card mx-auto max-w-3xl rounded-2xl p-6 text-center sm:p-8">
+            <p className="text-sm text-muted-foreground text-pretty">
+              <span className="font-semibold text-foreground">
+                A note on these projects:
+              </span>{" "}
+              every case study below is a self-directed demo build created to
+              show how we design, build, and think about conversion — not
+              paid client work. Client results are shared privately, with
+              permission.
+            </p>
+          </FadeIn>
         </Container>
       </section>
 
-      <CtaSection />
+      <section className="pb-24 sm:pb-32">
+        <Container className="flex flex-col gap-8">
+          {portfolioProjects.map((project, index) => (
+            <FadeIn key={project.slug} delay={index * 0.05}>
+              <ProjectCaseStudy project={project} />
+            </FadeIn>
+          ))}
+        </Container>
+      </section>
+
+      <CtaSection
+        title="Want a website like these built for your business?"
+        description="Book a free strategy call and we'll show you exactly what a conversion-focused website could look like for you."
+      />
     </>
   );
 }
