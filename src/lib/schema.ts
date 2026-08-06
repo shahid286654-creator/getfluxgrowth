@@ -68,6 +68,43 @@ export function personSchema() {
   };
 }
 
+export function serviceSchema(service: {
+  slug: string;
+  title: string;
+  description: string;
+  serviceType: string;
+  deliverables: string[];
+}) {
+  const url = `${siteConfig.url}/services/${service.slug}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${url}/#service`,
+    name: service.title,
+    url,
+    description: service.description,
+    serviceType: service.serviceType,
+    provider: { "@id": `${siteConfig.url}/#organization` },
+    areaServed: "Worldwide",
+    audience: {
+      "@type": "BusinessAudience",
+      audienceType: "Businesses",
+    },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: `${service.title} Deliverables`,
+      itemListElement: service.deliverables.map((item, index) => ({
+        "@type": "Offer",
+        position: index + 1,
+        itemOffered: {
+          "@type": "Service",
+          name: item,
+        },
+      })),
+    },
+  };
+}
+
 export function breadcrumbSchema(items: { name: string; url: string }[]) {
   return {
     "@context": "https://schema.org",

@@ -12,7 +12,12 @@ export function ProjectCard({ project }: { project: PortfolioProject }) {
         alt={`${project.title} homepage preview`}
       />
       <div className="flex flex-1 flex-col p-5">
-        <h3 className="text-lg font-semibold">{project.title}</h3>
+        <div className="flex items-center gap-2">
+          <h3 className="text-lg font-semibold">{project.title}</h3>
+          <Badge className="border-brand-400/30 bg-brand-500/10 text-brand-300 uppercase" variant="outline">
+            Demo Project
+          </Badge>
+        </div>
         <p className="mt-2 text-sm text-muted-foreground">{project.description}</p>
         <div className="mt-4 flex flex-wrap gap-2">
           {project.tech.map((tech) => (

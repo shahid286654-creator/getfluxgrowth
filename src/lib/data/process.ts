@@ -2,7 +2,6 @@ import {
   SearchCheck,
   PenTool,
   Cpu,
-  FlaskConical,
   Rocket,
   type LucideIcon,
 } from "lucide-react";
@@ -18,36 +17,29 @@ export const processSteps: ProcessStep[] = [
   {
     step: "01",
     icon: SearchCheck,
-    title: "Discover & Audit",
+    title: "Discover",
     description:
-      "We map your current workflows, tools, and data sources to find where AI automation will save the most time and create the most revenue impact.",
+      "We map your current workflows, website, and search presence to find where automation and SEO will move the needle fastest.",
   },
   {
     step: "02",
     icon: PenTool,
-    title: "Design the System",
+    title: "Plan",
     description:
-      "We architect the automation blueprint — data flow, model selection, integrations, and guardrails — and review it with your team before a line of code is written.",
+      "We design the blueprint — systems, integrations, and site architecture — and review it with you before anything is built.",
   },
   {
     step: "03",
     icon: Cpu,
-    title: "Build & Integrate",
+    title: "Build",
     description:
-      "Our engineers build the custom AI agents and connect them to your existing stack — CRM, email, calendars, and internal tools — with no disruption to daily operations.",
+      "Our engineers build and integrate your automation, website, or SEO system, tested against real data before launch.",
   },
   {
     step: "04",
-    icon: FlaskConical,
-    title: "Test & Optimize",
-    description:
-      "Every system is stress-tested against real data, with prompts, thresholds, and edge cases tuned until outputs are consistently accurate and on-brand.",
-  },
-  {
-    step: "05",
     icon: Rocket,
-    title: "Launch & Scale",
+    title: "Grow",
     description:
-      "We deploy with monitoring and reporting in place, then keep iterating — expanding automation coverage as your business grows.",
+      "We launch with monitoring in place, then keep iterating — expanding what's working as your business grows.",
   },
 ];

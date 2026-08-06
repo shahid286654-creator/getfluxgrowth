@@ -1,13 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/shared/container";
 import { SectionHeading } from "@/components/shared/section-heading";
-import { FadeIn } from "@/components/shared/fade-in";
+import {
+  FadeIn,
+  FadeInStagger,
+  FadeInStaggerItem,
+} from "@/components/shared/fade-in";
 import { JsonLd } from "@/components/shared/json-ld";
 import { CtaSection } from "@/components/sections/cta-section";
 import { services } from "@/lib/data/services";
+import { coreServices } from "@/lib/data/core-services";
 import { siteConfig } from "@/lib/site";
 import { buildMetadata } from "@/lib/metadata";
 import { breadcrumbSchema } from "@/lib/schema";
@@ -46,6 +51,32 @@ export default function ServicesPage() {
             title="AI automation, built around your business"
             description="Every engagement starts with a free audit of your current workflow. From there, we design and build the exact automation systems that will move the needle fastest."
           />
+        </Container>
+      </section>
+
+      <section className="pb-24">
+        <Container>
+          <FadeInStagger className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+            {coreServices.map((service) => (
+              <FadeInStaggerItem key={service.slug}>
+                <Link
+                  href={`/services/${service.slug}`}
+                  className="group glass-card relative flex h-full flex-col rounded-2xl p-8 transition-all duration-300 hover:border-brand-400/40 hover:bg-white/[0.06]"
+                >
+                  <div className="flex size-12 items-center justify-center rounded-xl bg-brand-500/10 text-brand-300 transition-colors group-hover:bg-brand-500/20">
+                    <service.icon className="size-6" />
+                  </div>
+                  <h2 className="mt-5 text-xl font-semibold">{service.title}</h2>
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    {service.outcome}
+                  </p>
+                  <div className="mt-6 flex items-center gap-1 text-sm font-medium text-brand-300">
+                    View service <ArrowUpRight className="size-4" />
+                  </div>
+                </Link>
+              </FadeInStaggerItem>
+            ))}
+          </FadeInStagger>
         </Container>
       </section>
 

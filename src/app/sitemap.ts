@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site";
+import { servicePages } from "@/lib/data/service-pages";
 import { getAllPosts } from "@/sanity/api";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -25,6 +26,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority,
   }));
 
+  const serviceEntries = servicePages.map((service) => ({
+    url: `${siteConfig.url}/services/${service.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.85,
+  }));
+
   const posts = await getAllPosts().catch(() => []);
   const postEntries = posts.map((post) => ({
     url: `${siteConfig.url}/blog/${post.slug}`,
@@ -33,5 +41,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }));
 
-  return [...staticEntries, ...postEntries];
+  return [...staticEntries, ...serviceEntries, ...postEntries];
 }

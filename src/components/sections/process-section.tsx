@@ -9,11 +9,11 @@ export function ProcessSection() {
       <Container>
         <SectionHeading
           eyebrow="Our Process"
-          title="From audit to autopilot in five steps"
-          description="A proven, transparent process that takes your business from manual busywork to a fully running AI automation system."
+          title="A simple, four-step process"
+          description="A proven, transparent process that takes your business from where it is today to a system that keeps generating growth."
         />
 
-        <FadeInStagger className="relative mt-16 grid grid-cols-1 gap-6 lg:grid-cols-5">
+        <FadeInStagger className="relative mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           <div className="absolute top-14 right-0 left-0 hidden h-px bg-gradient-to-r from-transparent via-white/15 to-transparent lg:block" />
           {processSteps.map((step) => (
             <FadeInStaggerItem key={step.step}>
