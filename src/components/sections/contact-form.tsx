@@ -1,13 +1,13 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { Loader2, CheckCircle2 } from "lucide-react";
+import { AlertCircle, CheckCircle2, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 
-type Status = "idle" | "submitting" | "success";
+type Status = "idle" | "submitting" | "success" | "error";
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
@@ -15,8 +15,28 @@ export function ContactForm() {
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setStatus("submitting");
-    await new Promise((resolve) => setTimeout(resolve, 900));
-    setStatus("success");
+
+    try {
+      const formData = new FormData(event.currentTarget);
+      const response = await fetch("/__forms.html", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(
+          Array.from(formData.entries()).map(([key, value]) => [
+            key,
+            String(value),
+          ])
+        ).toString(),
+      });
+
+      if (!response.ok) {
+        throw new Error("Form submission failed");
+      }
+
+      setStatus("success");
+    } catch {
+      setStatus("error");
+    }
   }
 
   if (status === "success") {
@@ -35,7 +55,20 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="glass-card space-y-6 rounded-2xl p-8">
+    <form
+      name="contact"
+      method="POST"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      onSubmit={handleSubmit}
+      className="glass-card space-y-6 rounded-2xl p-8"
+    >
+      <input type="hidden" name="form-name" value="contact" />
+      <div className="hidden" aria-hidden="true">
+        <Label htmlFor="bot-field">Leave this field empty</Label>
+        <Input id="bot-field" name="bot-field" tabIndex={-1} autoComplete="off" />
+      </div>
+
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
         <div className="space-y-2">
           <Label htmlFor="name">Name</Label>
@@ -83,6 +116,19 @@ export function ContactForm() {
           "Send Message"
         )}
       </Button>
+
+      {status === "error" && (
+        <div
+          role="alert"
+          className="flex items-start gap-3 rounded-xl border border-red-400/25 bg-red-500/10 p-4 text-sm text-red-200"
+        >
+          <AlertCircle className="mt-0.5 size-4 shrink-0" />
+          <p>
+            Your message could not be sent. Please check your connection and
+            try again.
+          </p>
+        </div>
+      )}
     </form>
   );
 }
