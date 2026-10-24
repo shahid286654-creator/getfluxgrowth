@@ -7,7 +7,7 @@ import type { PortfolioProject } from "@/lib/data/portfolio";
 
 export function ProjectCard({ project }: { project: PortfolioProject }) {
   return (
-    <div className="glass-card flex h-full flex-col overflow-hidden rounded-2xl p-3">
+    <div className="glass-card flex h-full flex-col overflow-hidden rounded-2xl p-3 transition-all duration-300 hover:-translate-y-1 hover:border-brand-400/30 hover:shadow-[0_20px_60px_-20px_rgba(200,154,58,0.35)]">
       <ProjectThumbnail
         src={project.thumbnail}
         alt={`${project.title} homepage preview`}
@@ -16,7 +16,7 @@ export function ProjectCard({ project }: { project: PortfolioProject }) {
         <div className="flex flex-wrap items-center gap-2">
           <h3 className="text-lg font-semibold">{project.title}</h3>
           <Badge className="border-brand-400/30 bg-brand-500/10 text-brand-300 uppercase" variant="outline">
-            Demo Project
+            {project.badge ?? "Demo Project"}
           </Badge>
         </div>
         <p className="mt-2 text-sm text-muted-foreground">{project.tagline}</p>
@@ -37,14 +37,16 @@ export function ProjectCard({ project }: { project: PortfolioProject }) {
               View Case Study <ArrowRight className="size-4" />
             </Link>
           </Button>
-          <a
-            href={project.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-          >
-            Live Demo <ArrowUpRight className="size-3.5" />
-          </a>
+          {project.url ? (
+            <a
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Live Demo <ArrowUpRight className="size-3.5" />
+            </a>
+          ) : null}
         </div>
       </div>
     </div>

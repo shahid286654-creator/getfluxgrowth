@@ -58,3 +58,30 @@ export const pricingTiers: PricingTier[] = [
     cta: "Talk to Us",
   },
 ];
+
+export interface AddOn {
+  name: string;
+  price: string;
+  cadence: string;
+  description: string;
+  features: string[];
+  cta: string;
+}
+
+export const addOns: AddOn[] = [
+  {
+    name: "AI Automation for Business",
+    price: "$2,500",
+    cadence: "one-time setup",
+    description:
+      "A standalone build-out for businesses that just need one system done right — a custom AI agent or workflow wired into your existing tools, delivered as a one-time project instead of a monthly retainer.",
+    features: [
+      "One custom AI agent or automated workflow",
+      "Integration with your CRM, inbox, or scheduling tool",
+      "Lead qualification, follow-up, or reporting automation",
+      "Tested against your real data before handoff",
+      "30 days of post-launch support included",
+    ],
+    cta: "Add to My Project",
+  },
+];

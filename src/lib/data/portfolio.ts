@@ -3,13 +3,16 @@ export interface PortfolioProject {
   title: string;
   category: string;
   tagline: string;
-  url: string;
+  /** Omit for projects with no public live demo (e.g. internal/concept builds). */
+  url?: string;
   thumbnail: string;
   tech: string[];
   challenge: string;
   solution: string;
   features: string[];
   businessImpact: string;
+  /** Overrides the default "Demo Project" badge, e.g. "Concept Build". */
+  badge?: string;
 }
 
 export const portfolioProjects: PortfolioProject[] = [
@@ -97,5 +100,26 @@ export const portfolioProjects: PortfolioProject[] = [
     ],
     businessImpact:
       "A mobile-first ordering experience built to remove friction between a hungry visitor and a placed order.",
+  },
+  {
+    slug: "ai-automation-suite",
+    title: "AI Automation for Business",
+    category: "AI Automation",
+    tagline: "Concept build: AI lead qualification & CRM automation system.",
+    thumbnail: "/portfolio/ai-automation-suite.png",
+    tech: ["n8n", "OpenAI API", "CRM Integration", "Zapier"],
+    badge: "Concept Build",
+    challenge:
+      "Sales teams lose deals when new leads sit untouched for hours — nobody is qualifying them, logging them to the CRM, or sending a timely follow-up while the lead is still warm.",
+    solution:
+      "A self-directed concept system showing how we'd wire an AI agent to qualify inbound leads in real time, sync the result straight to the CRM, and trigger a personalized follow-up — no manual handoffs.",
+    features: [
+      "Real-time lead qualification powered by an AI agent",
+      "Automatic CRM sync with no manual data entry",
+      "Personalized, instant follow-up sequencing",
+      "Dashboard showing leads processed and time saved",
+    ],
+    businessImpact:
+      "This is the kind of system we build as the paid AI Automation add-on — a one-time project that replaces hours of manual lead handling with a workflow that runs itself.",
   },
 ];

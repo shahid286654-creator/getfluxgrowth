@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { Check } from "lucide-react";
+import { Check, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/shared/container";
 import { SectionHeading } from "@/components/shared/section-heading";
-import { FadeInStagger, FadeInStaggerItem } from "@/components/shared/fade-in";
-import { pricingTiers } from "@/lib/data/pricing";
+import { FadeIn, FadeInStagger, FadeInStaggerItem } from "@/components/shared/fade-in";
+import { addOns, pricingTiers } from "@/lib/data/pricing";
 import { cn } from "@/lib/utils";
 
 export function PricingSection() {
@@ -70,6 +70,61 @@ export function PricingSection() {
             </FadeInStaggerItem>
           ))}
         </FadeInStagger>
+
+        {addOns.length > 0 ? (
+          <div className="mt-10">
+            <FadeIn className="mb-6 text-center text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
+              Or add a one-time build to any plan
+            </FadeIn>
+            {addOns.map((addOn) => (
+              <FadeIn
+                key={addOn.name}
+                className="glass-card flex flex-col gap-6 rounded-2xl border-brand-400/30 p-8 sm:flex-row sm:items-center sm:justify-between"
+              >
+                <div className="flex gap-4">
+                  <div className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-brand-500/10 text-brand-300">
+                    <Zap className="size-5" />
+                  </div>
+                  <div>
+                    <div className="flex flex-wrap items-center gap-2">
+                      <h3 className="text-lg font-semibold">{addOn.name}</h3>
+                      <span className="rounded-full bg-brand-500/10 px-2.5 py-0.5 text-xs font-medium text-brand-300">
+                        Paid add-on
+                      </span>
+                    </div>
+                    <p className="mt-1.5 max-w-xl text-sm text-muted-foreground">
+                      {addOn.description}
+                    </p>
+                    <ul className="mt-4 grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-2">
+                      {addOn.features.map((feature) => (
+                        <li key={feature} className="flex items-start gap-2 text-sm">
+                          <Check className="mt-0.5 size-3.5 shrink-0 text-brand-300" />
+                          <span className="text-foreground/90">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+                <div className="flex shrink-0 flex-col items-start gap-3 sm:items-end">
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-3xl font-semibold tracking-tight">
+                      {addOn.price}
+                    </span>
+                    <span className="text-sm text-muted-foreground">
+                      {addOn.cadence}
+                    </span>
+                  </div>
+                  <Button
+                    asChild
+                    className="bg-gradient-to-r from-brand-500 to-brand-300 text-brand-950 hover:opacity-90"
+                  >
+                    <Link href="/contact">{addOn.cta}</Link>
+                  </Button>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        ) : null}
       </Container>
     </section>
   );

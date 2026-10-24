@@ -32,7 +32,7 @@ export function ProjectCaseStudy({ project }: { project: PortfolioProject }) {
             className="border-brand-400/30 bg-brand-500/10 text-brand-300 uppercase"
             variant="outline"
           >
-            Demo Project
+            {project.badge ?? "Demo Project"}
           </Badge>
           <span className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
             {project.category}
@@ -116,18 +116,20 @@ export function ProjectCaseStudy({ project }: { project: PortfolioProject }) {
             className="gap-2 bg-gradient-to-r from-brand-500 to-brand-300 text-brand-950 hover:opacity-90"
           >
             <Link href="/contact">
-              Get a Website Like This <ArrowRight className="size-4" />
+              Get a Project Like This <ArrowRight className="size-4" />
             </Link>
           </Button>
-          <Button
-            asChild
-            variant="outline"
-            className="gap-2 border-white/15 bg-white/5 hover:bg-white/10"
-          >
-            <a href={project.url} target="_blank" rel="noopener noreferrer">
-              View Live Demo <ArrowUpRight className="size-4" />
-            </a>
-          </Button>
+          {project.url ? (
+            <Button
+              asChild
+              variant="outline"
+              className="gap-2 border-white/15 bg-white/5 hover:bg-white/10"
+            >
+              <a href={project.url} target="_blank" rel="noopener noreferrer">
+                View Live Demo <ArrowUpRight className="size-4" />
+              </a>
+            </Button>
+          ) : null}
         </div>
       </div>
     </div>

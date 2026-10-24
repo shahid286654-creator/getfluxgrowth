@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { ScrollProgress } from "@/components/shared/scroll-progress";
 import { JsonLd } from "@/components/shared/json-ld";
 import { GoogleAnalytics } from "@/components/analytics/google-analytics";
 import { MicrosoftClarity } from "@/components/analytics/microsoft-clarity";
@@ -98,6 +99,7 @@ export default function RootLayout({
         <JsonLd data={websiteSchema()} />
         <JsonLd data={professionalServiceSchema()} />
         <div className="pointer-events-none fixed inset-0 -z-10 bg-grid [mask-image:radial-gradient(ellipse_80%_60%_at_50%_-10%,black,transparent)]" />
+        <ScrollProgress />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

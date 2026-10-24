@@ -20,7 +20,7 @@ export function ServicesSection() {
             <FadeInStaggerItem key={service.slug}>
               <Link
                 href={`/services/${service.slug}`}
-                className="group glass-card relative flex h-full flex-col rounded-2xl p-8 transition-all duration-300 hover:border-brand-400/40 hover:bg-white/[0.06]"
+                className="group glass-card relative flex h-full flex-col rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 hover:border-brand-400/40 hover:bg-white/[0.06] hover:shadow-[0_20px_60px_-20px_rgba(200,154,58,0.35)]"
               >
                 <div className="flex size-12 items-center justify-center rounded-xl bg-brand-500/10 text-brand-300 transition-colors group-hover:bg-brand-500/20">
                   <service.icon className="size-6" />

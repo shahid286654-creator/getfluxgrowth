@@ -3,6 +3,7 @@ import { ServicesSection } from "@/components/sections/services-section";
 import { WhyChooseUsSection } from "@/components/sections/why-choose-us-section";
 import { ProcessSection } from "@/components/sections/process-section";
 import { PortfolioSection } from "@/components/sections/portfolio-section";
+import { PricingSection } from "@/components/sections/pricing-section";
 import { FreeOfferSection } from "@/components/sections/free-offer-section";
 import { FaqSection } from "@/components/sections/faq-section";
 import { CtaSection } from "@/components/sections/cta-section";
@@ -19,6 +20,7 @@ export default function Home() {
       <WhyChooseUsSection />
       <ProcessSection />
       <PortfolioSection />
+      <PricingSection />
       <FreeOfferSection />
       <FaqSection />
       <CtaSection
