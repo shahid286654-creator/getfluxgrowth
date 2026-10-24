@@ -122,4 +122,46 @@ export const portfolioProjects: PortfolioProject[] = [
     businessImpact:
       "This is the kind of system we build as the paid AI Automation add-on — a one-time project that replaces hours of manual lead handling with a workflow that runs itself.",
   },
+  {
+    slug: "real-estate-speed-to-lead",
+    title: "Real Estate Speed-to-Lead AI",
+    category: "AI Automation",
+    tagline: "Concept build: instant AI response and showing scheduler for property inquiries.",
+    thumbnail: "/portfolio/real-estate-speed-to-lead.png",
+    tech: ["OpenAI API", "Twilio", "CRM Integration", "Calendar API"],
+    badge: "Concept Build",
+    challenge:
+      "Real estate agents routinely take hours to respond to a new inquiry — audits of major brokerages have found most leads go unanswered on the first contact attempt, and industry research (MIT/InsideSales) shows leads contacted within 5 minutes are roughly 21x more likely to qualify than those contacted after 30 minutes. Every hour of delay is a lead drifting to a faster-responding agent.",
+    solution:
+      "A self-directed concept system showing how we'd wire an AI agent to reply to a new property inquiry within seconds, ask the qualifying questions a human would (budget, timeline, financing), and book a showing directly on the agent's calendar — with the full conversation logged to the CRM automatically.",
+    features: [
+      "Sub-minute AI response to new inquiries, 24/7",
+      "Automated budget and timeline qualification",
+      "Direct showing scheduling, synced to the agent's calendar",
+      "Full conversation history logged to the CRM, no manual entry",
+    ],
+    businessImpact:
+      "Built to close the response-time gap that costs agents deals before a human ever sees the lead — this is the shape of the one-time AI Automation add-on when speed-to-lead is the bottleneck.",
+  },
+  {
+    slug: "home-services-missed-call-recovery",
+    title: "Home Services Missed-Call Recovery",
+    category: "AI Automation",
+    tagline: "Concept build: AI text-back and booking system for missed service calls.",
+    thumbnail: "/portfolio/home-services-missed-call-recovery.png",
+    tech: ["OpenAI API", "Twilio", "Scheduling API", "CRM Integration"],
+    badge: "Concept Build",
+    challenge:
+      "Field service businesses — plumbers, HVAC, electricians — miss a meaningful share of inbound calls while technicians are on a job, and industry survey data (CallRail) finds most consumers won't call back after an unanswered call, with many abandoning the business entirely. Each missed call is a job that quietly goes to a competitor.",
+    solution:
+      "A self-directed concept system showing how we'd wire an AI agent to instantly text back every missed call, answer basic questions, and offer real appointment slots — booking the job straight into the technician schedule without anyone picking up a phone.",
+    features: [
+      "Instant auto-text-back on every missed call",
+      "AI-handled Q&A on services, pricing ranges, and availability",
+      "Direct appointment booking into the technician schedule",
+      "Dashboard tracking missed-call recovery rate and jobs booked",
+    ],
+    businessImpact:
+      "Built to recover revenue that currently disappears the moment a call goes unanswered — this is the shape of the one-time AI Automation add-on for appointment-driven service businesses.",
+  },
 ];
