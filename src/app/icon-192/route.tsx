@@ -12,14 +12,14 @@ export async function GET() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "linear-gradient(135deg, #a78bfa, #e879f9)",
+          background: "linear-gradient(135deg, #e3c178, #9a7527)",
         }}
       >
         <span
           style={{
             fontSize: 108,
             fontWeight: 700,
-            color: "#0a0714",
+            color: "#0a0a0b",
             fontFamily: "sans-serif",
           }}
         >

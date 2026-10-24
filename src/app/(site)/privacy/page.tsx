@@ -23,7 +23,7 @@ export default function PrivacyPolicyPage() {
         ])}
       />
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute top-[-10%] left-1/2 h-[30rem] w-[56rem] -translate-x-1/2 rounded-full glow-purple blur-3xl" />
+        <div className="absolute top-[-10%] left-1/2 h-[30rem] w-[56rem] -translate-x-1/2 rounded-full glow-brand blur-3xl" />
       </div>
       <Container className="max-w-3xl">
         <SectionHeading

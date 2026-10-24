@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Menu, Sparkles } from "lucide-react";
+import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -14,6 +14,7 @@ import {
   SheetClose,
 } from "@/components/ui/sheet";
 import { Container } from "@/components/shared/container";
+import { Logo } from "@/components/shared/logo";
 import { navLinks, siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
@@ -38,11 +39,8 @@ export function Navbar() {
       )}
     >
       <Container className="flex h-16 items-center justify-between lg:h-20">
-        <Link href="/" className="flex items-center gap-2 font-semibold tracking-tight">
-          <span className="flex size-8 items-center justify-center rounded-lg bg-gradient-to-br from-brand-400 to-fuchsia-500 text-background">
-            <Sparkles className="size-4" />
-          </span>
-          <span className="text-lg">{siteConfig.name}</span>
+        <Link href="/" aria-label={siteConfig.name}>
+          <Logo />
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex">
@@ -70,7 +68,7 @@ export function Navbar() {
           <Button
             asChild
             size="sm"
-            className="bg-gradient-to-r from-brand-500 to-fuchsia-500 text-white shadow-[0_0_0_1px_rgba(255,255,255,0.08)] hover:opacity-90"
+            className="bg-gradient-to-r from-brand-500 to-brand-300 text-brand-950 shadow-[0_0_0_1px_rgba(255,255,255,0.08)] hover:opacity-90"
           >
             <Link href="/contact">Book a Strategy Call</Link>
           </Button>
@@ -100,7 +98,7 @@ export function Navbar() {
               <SheetClose asChild>
                 <Button
                   asChild
-                  className="mt-4 bg-gradient-to-r from-brand-500 to-fuchsia-500 text-white"
+                  className="mt-4 bg-gradient-to-r from-brand-500 to-brand-300 text-brand-950"
                 >
                   <Link href="/contact">Book a Strategy Call</Link>
                 </Button>

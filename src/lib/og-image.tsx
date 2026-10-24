@@ -15,9 +15,9 @@ export function buildOgImage(title: string, description: string) {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "#0a0714",
+          backgroundColor: "#0a0a0b",
           backgroundImage:
-            "radial-gradient(circle at 50% 30%, rgba(147,51,234,0.45), rgba(10,7,20,0) 60%)",
+            "radial-gradient(circle at 50% 30%, rgba(200,154,58,0.45), rgba(10,7,20,0) 60%)",
           fontFamily: "sans-serif",
           padding: 80,
         }}
@@ -36,7 +36,7 @@ export function buildOgImage(title: string, description: string) {
               width: 56,
               height: 56,
               borderRadius: 14,
-              background: "linear-gradient(135deg, #a78bfa, #e879f9)",
+              background: "linear-gradient(135deg, #e3c178, #9a7527)",
             }}
           />
           <div style={{ fontSize: 36, fontWeight: 700, color: "white" }}>
@@ -59,7 +59,7 @@ export function buildOgImage(title: string, description: string) {
           style={{
             display: "flex",
             fontSize: 28,
-            color: "#c4b5fd",
+            color: "#d8bd82",
             textAlign: "center",
             maxWidth: 900,
             marginTop: 20,

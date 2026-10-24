@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { Sparkles, Mail, MessageCircle } from "lucide-react";
+import { Mail, MessageCircle } from "lucide-react";
 import { Container } from "@/components/shared/container";
 import { LinkedinIcon, InstagramIcon } from "@/components/shared/social-icons";
+import { Logo } from "@/components/shared/logo";
 import { siteConfig } from "@/lib/site";
 
 export function Footer() {
@@ -10,11 +11,8 @@ export function Footer() {
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-500/50 to-transparent" />
       <Container className="py-12">
         <div className="flex flex-col items-center gap-8 text-center sm:flex-row sm:items-center sm:justify-between sm:text-left">
-          <Link href="/" className="flex items-center gap-2 font-semibold tracking-tight">
-            <span className="flex size-8 items-center justify-center rounded-lg bg-gradient-to-br from-brand-400 to-fuchsia-500 text-background">
-              <Sparkles className="size-4" />
-            </span>
-            <span className="text-lg">{siteConfig.name}</span>
+          <Link href="/" aria-label={siteConfig.name}>
+            <Logo />
           </Link>
 
           <div className="flex flex-col items-center gap-4 text-sm text-muted-foreground sm:flex-row sm:gap-8">

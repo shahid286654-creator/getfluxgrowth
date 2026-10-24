@@ -83,8 +83,8 @@ export default async function ServiceDetailPage({
       {/* Hero */}
       <section className="relative overflow-hidden pt-20 pb-16 sm:pt-28 sm:pb-20">
         <div className="pointer-events-none absolute inset-0 -z-10">
-          <div className="absolute top-[-10%] left-1/2 h-[36rem] w-[64rem] -translate-x-1/2 rounded-full glow-purple blur-3xl" />
-          <div className="absolute top-1/3 right-[-10%] h-72 w-72 rounded-full bg-fuchsia-500/20 blur-3xl" />
+          <div className="absolute top-[-10%] left-1/2 h-[36rem] w-[64rem] -translate-x-1/2 rounded-full glow-brand blur-3xl" />
+          <div className="absolute top-1/3 right-[-10%] h-72 w-72 rounded-full bg-brand-300/20 blur-3xl" />
         </div>
         <Container className="flex flex-col items-center text-center">
           <span className="glass-card inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm text-muted-foreground">
@@ -102,7 +102,7 @@ export default async function ServiceDetailPage({
             <Button
               asChild
               size="lg"
-              className="h-12 gap-2 bg-gradient-to-r from-brand-500 to-fuchsia-500 px-7 text-base text-white shadow-[0_0_40px_-10px_rgba(168,85,247,0.7)] hover:opacity-90"
+              className="h-12 gap-2 bg-gradient-to-r from-brand-500 to-brand-300 px-7 text-base text-brand-950 shadow-[0_0_40px_-10px_rgba(200,154,58,0.55)] hover:opacity-90"
             >
               <Link href="/contact">
                 Book a Strategy Call
@@ -259,7 +259,7 @@ export default async function ServiceDetailPage({
         <Container>
           <FadeIn className="glass-card relative overflow-hidden rounded-3xl p-8 sm:p-12 lg:p-16">
             <div className="pointer-events-none absolute inset-0 -z-10">
-              <div className="absolute top-1/2 left-0 h-96 w-96 -translate-y-1/2 rounded-full glow-purple blur-3xl" />
+              <div className="absolute top-1/2 left-0 h-96 w-96 -translate-y-1/2 rounded-full glow-brand blur-3xl" />
             </div>
             <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-5">
               <div className="lg:col-span-2">
@@ -276,7 +276,7 @@ export default async function ServiceDetailPage({
                 <Button
                   asChild
                   size="lg"
-                  className="mt-8 h-12 gap-2 bg-gradient-to-r from-brand-500 to-fuchsia-500 px-7 text-base text-white shadow-[0_0_40px_-10px_rgba(168,85,247,0.7)] hover:opacity-90"
+                  className="mt-8 h-12 gap-2 bg-gradient-to-r from-brand-500 to-brand-300 px-7 text-base text-brand-950 shadow-[0_0_40px_-10px_rgba(200,154,58,0.55)] hover:opacity-90"
                 >
                   <Link href="/contact">
                     Book a Strategy Call

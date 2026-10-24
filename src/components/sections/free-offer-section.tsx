@@ -11,7 +11,7 @@ export function FreeOfferSection() {
       <Container>
         <FadeIn className="glass-card relative overflow-hidden rounded-3xl p-8 sm:p-12 lg:p-16">
           <div className="pointer-events-none absolute inset-0 -z-10">
-            <div className="absolute top-1/2 left-0 h-96 w-96 -translate-y-1/2 rounded-full glow-purple blur-3xl" />
+            <div className="absolute top-1/2 left-0 h-96 w-96 -translate-y-1/2 rounded-full glow-brand blur-3xl" />
           </div>
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-5">
             <div className="lg:col-span-3">
@@ -29,7 +29,7 @@ export function FreeOfferSection() {
               <Button
                 asChild
                 size="lg"
-                className="mt-8 h-12 gap-2 bg-gradient-to-r from-brand-500 to-fuchsia-500 px-7 text-base text-white shadow-[0_0_40px_-10px_rgba(168,85,247,0.7)] hover:opacity-90"
+                className="mt-8 h-12 gap-2 bg-gradient-to-r from-brand-500 to-brand-300 px-7 text-base text-brand-950 shadow-[0_0_40px_-10px_rgba(200,154,58,0.55)] hover:opacity-90"
               >
                 <Link href="/contact">
                   Claim My Free Audit

@@ -29,7 +29,7 @@ export function PricingSection() {
                 )}
               >
                 {tier.highlighted ? (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-brand-500 to-fuchsia-500 px-3 py-1 text-xs font-medium text-white">
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-brand-500 to-brand-300 px-3 py-1 text-xs font-medium text-brand-950">
                     Most Popular
                   </span>
                 ) : null}
@@ -59,7 +59,7 @@ export function PricingSection() {
                   className={cn(
                     "mt-8",
                     tier.highlighted
-                      ? "bg-gradient-to-r from-brand-500 to-fuchsia-500 text-white hover:opacity-90"
+                      ? "bg-gradient-to-r from-brand-500 to-brand-300 text-brand-950 hover:opacity-90"
                       : "border-white/15 bg-white/5 hover:bg-white/10"
                   )}
                   variant={tier.highlighted ? "default" : "outline"}

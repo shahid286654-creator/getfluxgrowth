@@ -125,7 +125,7 @@ export default async function BlogPostPage({
 
       <section className="relative overflow-hidden pt-20 pb-12 sm:pt-28">
         <div className="pointer-events-none absolute inset-0 -z-10">
-          <div className="absolute top-[-10%] left-1/2 h-[30rem] w-[56rem] -translate-x-1/2 rounded-full glow-purple blur-3xl" />
+          <div className="absolute top-[-10%] left-1/2 h-[30rem] w-[56rem] -translate-x-1/2 rounded-full glow-brand blur-3xl" />
         </div>
         <Container className="max-w-3xl">
           <div className="flex flex-col items-center gap-4 text-center animate-in fade-in slide-in-from-bottom-6 fill-mode-backwards duration-600 ease-[cubic-bezier(0.21,0.47,0.32,0.98)]">

@@ -113,7 +113,7 @@ export function ProjectCaseStudy({ project }: { project: PortfolioProject }) {
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <Button
             asChild
-            className="gap-2 bg-gradient-to-r from-brand-500 to-fuchsia-500 text-white hover:opacity-90"
+            className="gap-2 bg-gradient-to-r from-brand-500 to-brand-300 text-brand-950 hover:opacity-90"
           >
             <Link href="/contact">
               Get a Website Like This <ArrowRight className="size-4" />

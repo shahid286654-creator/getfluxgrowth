@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
+import { motion, type Variants } from "framer-motion";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/shared/container";
 
@@ -9,38 +12,70 @@ const trustPoints = [
   "Clear pricing, no long-term lock-in",
 ];
 
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 18 },
+  show: (delay: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] as const },
+  }),
+};
+
 export function Hero() {
   return (
     <section className="relative overflow-hidden pt-20 pb-24 sm:pt-28 sm:pb-32">
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute top-[-10%] left-1/2 h-[36rem] w-[64rem] -translate-x-1/2 rounded-full glow-purple blur-3xl" />
-        <div className="absolute top-1/3 right-[-10%] h-72 w-72 rounded-full bg-fuchsia-500/20 blur-3xl" />
+        <div className="absolute top-[-10%] left-1/2 h-[36rem] w-[64rem] -translate-x-1/2 rounded-full glow-brand blur-3xl" />
+        <div className="absolute top-1/3 right-[-10%] h-72 w-72 rounded-full bg-brand-300/15 blur-3xl" />
+        <div className="bg-grid absolute inset-0 [mask-image:radial-gradient(ellipse_70%_55%_at_50%_0%,black,transparent)]" />
       </div>
 
       <Container className="flex flex-col items-center text-center">
-        <div className="glass-card animate-in fade-in slide-in-from-bottom-3 fill-mode-backwards duration-500 ease-out inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm text-muted-foreground">
-          <Sparkles className="size-3.5 text-brand-300" />
-          AI-powered growth systems for modern businesses
-        </div>
+        <motion.div
+          initial="hidden"
+          animate="show"
+          custom={0}
+          variants={fadeUp}
+          className="glass-card inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase"
+        >
+          <span className="size-1.5 rounded-full bg-brand-300" />
+          Engineering-led growth partner
+        </motion.div>
 
-        <h1 className="animate-in fade-in slide-in-from-bottom-4 fill-mode-backwards duration-600 delay-100 ease-out mt-8 max-w-4xl text-4xl font-semibold tracking-tight text-balance sm:text-6xl lg:text-7xl">
-          Grow Your Business with{" "}
-          <span className="text-gradient">
-            AI Automation, Website Development & SEO
-          </span>
-        </h1>
+        <motion.h1
+          initial="hidden"
+          animate="show"
+          custom={0.1}
+          variants={fadeUp}
+          className="mt-8 max-w-4xl text-4xl font-semibold tracking-tight text-balance sm:text-6xl lg:text-7xl"
+        >
+          Websites, SEO & AI Automation{" "}
+          <span className="text-gradient">built to win high-value clients</span>
+        </motion.h1>
 
-        <p className="animate-in fade-in slide-in-from-bottom-4 fill-mode-backwards duration-600 delay-200 ease-out mt-6 max-w-2xl text-lg text-muted-foreground text-pretty">
-          We help businesses automate repetitive work, build high-performing
-          websites, and increase organic growth using AI, modern websites,
-          and SEO.
-        </p>
+        <motion.p
+          initial="hidden"
+          animate="show"
+          custom={0.2}
+          variants={fadeUp}
+          className="mt-6 max-w-2xl text-lg text-muted-foreground text-pretty"
+        >
+          We design and engineer premium digital systems — websites, SEO
+          infrastructure, and AI automation — for businesses that compete on
+          quality, not price.
+        </motion.p>
 
-        <div className="animate-in fade-in slide-in-from-bottom-4 fill-mode-backwards duration-600 delay-300 ease-out mt-10 flex flex-col items-center gap-4 sm:flex-row">
+        <motion.div
+          initial="hidden"
+          animate="show"
+          custom={0.3}
+          variants={fadeUp}
+          className="mt-10 flex flex-col items-center gap-4 sm:flex-row"
+        >
           <Button
             asChild
             size="lg"
-            className="h-12 gap-2 bg-gradient-to-r from-brand-500 to-fuchsia-500 px-7 text-base text-white shadow-[0_0_40px_-10px_rgba(168,85,247,0.7)] hover:opacity-90"
+            className="h-12 gap-2 bg-gradient-to-r from-brand-500 to-brand-300 px-7 text-base text-brand-950 shadow-[0_0_40px_-10px_rgba(200,154,58,0.55)] hover:opacity-90"
           >
             <Link href="/contact">
               Get Free Growth Audit
@@ -55,16 +90,22 @@ export function Hero() {
           >
             <Link href="/contact">Book a Strategy Call</Link>
           </Button>
-        </div>
+        </motion.div>
 
-        <ul className="animate-in fade-in slide-in-from-bottom-4 fill-mode-backwards duration-600 delay-300 ease-out mt-10 flex flex-col items-center gap-3 text-sm text-muted-foreground sm:flex-row sm:gap-6">
+        <motion.ul
+          initial="hidden"
+          animate="show"
+          custom={0.4}
+          variants={fadeUp}
+          className="mt-10 flex flex-col items-center gap-3 text-sm text-muted-foreground sm:flex-row sm:gap-6"
+        >
           {trustPoints.map((point) => (
             <li key={point} className="flex items-center gap-2">
               <CheckCircle2 className="size-4 shrink-0 text-brand-300" />
               {point}
             </li>
           ))}
-        </ul>
+        </motion.ul>
       </Container>
     </section>
   );

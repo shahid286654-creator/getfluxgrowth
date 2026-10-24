@@ -21,8 +21,8 @@ export function FounderPhoto({
 
   return (
     <div className={cn("relative mx-auto shrink-0", dimensions, className)}>
-      <div className="pointer-events-none absolute -inset-6 rounded-full bg-gradient-to-br from-brand-500/40 via-fuchsia-500/20 to-transparent blur-2xl" />
-      <div className="relative size-full rounded-full bg-gradient-to-br from-brand-400 via-fuchsia-500 to-brand-600 p-[3px] shadow-[0_0_60px_-12px_rgba(168,85,247,0.65)]">
+      <div className="pointer-events-none absolute -inset-6 rounded-full bg-gradient-to-br from-brand-500/40 via-brand-300/20 to-transparent blur-2xl" />
+      <div className="relative size-full rounded-full bg-gradient-to-br from-brand-400 via-brand-300 to-brand-600 p-[3px] shadow-[0_0_60px_-12px_rgba(200,154,58,0.5)]">
         <div className="relative size-full overflow-hidden rounded-full bg-background">
           {src ? (
             <Image
@@ -37,7 +37,7 @@ export function FounderPhoto({
             <div
               role="img"
               aria-label="Founder photo placeholder"
-              className="flex size-full items-center justify-center bg-gradient-to-br from-brand-500/10 via-white/[0.02] to-fuchsia-500/10 text-brand-300"
+              className="flex size-full items-center justify-center bg-gradient-to-br from-brand-500/10 via-white/[0.02] to-brand-300/10 text-brand-300"
             >
               <User className="size-10" />
             </div>

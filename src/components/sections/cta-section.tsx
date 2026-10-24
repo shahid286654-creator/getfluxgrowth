@@ -26,7 +26,7 @@ export function CtaSection({
       <Container>
         <FadeIn className="glass-card relative overflow-hidden rounded-3xl px-8 py-16 text-center sm:px-16">
           <div className="pointer-events-none absolute inset-0 -z-10">
-            <div className="absolute top-1/2 left-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full glow-purple blur-3xl" />
+            <div className="absolute top-1/2 left-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full glow-brand blur-3xl" />
           </div>
           <h2 className="mx-auto max-w-2xl text-3xl font-semibold tracking-tight text-balance sm:text-4xl lg:text-5xl">
             {title}
@@ -38,7 +38,7 @@ export function CtaSection({
             <Button
               asChild
               size="lg"
-              className="h-12 gap-2 bg-gradient-to-r from-brand-500 to-fuchsia-500 px-7 text-base text-white shadow-[0_0_40px_-10px_rgba(168,85,247,0.7)] hover:opacity-90"
+              className="h-12 gap-2 bg-gradient-to-r from-brand-500 to-brand-300 px-7 text-base text-brand-950 shadow-[0_0_40px_-10px_rgba(200,154,58,0.55)] hover:opacity-90"
             >
               <Link href={primaryHref}>
                 {primaryLabel}

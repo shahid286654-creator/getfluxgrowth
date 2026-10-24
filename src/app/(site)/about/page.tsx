@@ -35,7 +35,7 @@ export default function AboutPage() {
       <JsonLd data={personSchema()} />
       <section className="relative overflow-hidden pt-20 pb-16 sm:pt-28">
         <div className="pointer-events-none absolute inset-0 -z-10">
-          <div className="absolute top-[-10%] left-1/2 h-[30rem] w-[56rem] -translate-x-1/2 rounded-full glow-purple blur-3xl" />
+          <div className="absolute top-[-10%] left-1/2 h-[30rem] w-[56rem] -translate-x-1/2 rounded-full glow-brand blur-3xl" />
         </div>
         <Container>
           <SectionHeading
@@ -117,7 +117,7 @@ export default function AboutPage() {
                 <div className="mt-8 flex flex-wrap items-center justify-center gap-3 lg:justify-start">
                   <Button
                     asChild
-                    className="gap-2 bg-gradient-to-r from-brand-500 to-fuchsia-500 text-white hover:opacity-90"
+                    className="gap-2 bg-gradient-to-r from-brand-500 to-brand-300 text-brand-950 hover:opacity-90"
                   >
                     <Link href="/contact">
                       Work With Me <ArrowRight className="size-4" />
