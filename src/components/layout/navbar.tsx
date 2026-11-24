@@ -68,7 +68,7 @@ export function Navbar() {
           <Button
             asChild
             size="sm"
-            className="bg-gradient-to-r from-brand-500 to-brand-300 text-brand-950 shadow-[0_0_0_1px_rgba(255,255,255,0.08)] hover:opacity-90"
+            className="bg-gradient-to-r from-brand-600 to-brand-400 text-white shadow-[0_0_0_1px_rgba(255,255,255,0.08)] hover:opacity-90"
           >
             <Link href="/contact">Book a Strategy Call</Link>
           </Button>
@@ -98,7 +98,7 @@ export function Navbar() {
               <SheetClose asChild>
                 <Button
                   asChild
-                  className="mt-4 bg-gradient-to-r from-brand-500 to-brand-300 text-brand-950"
+                  className="mt-4 bg-gradient-to-r from-brand-600 to-brand-400 text-white"
                 >
                   <Link href="/contact">Book a Strategy Call</Link>
                 </Button>

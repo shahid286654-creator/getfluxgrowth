@@ -73,7 +73,7 @@ export function ContactForm() {
         type="submit"
         size="lg"
         disabled={status === "submitting"}
-        className="w-full gap-2 bg-gradient-to-r from-brand-500 to-brand-300 text-brand-950 hover:opacity-90 sm:w-auto"
+        className="w-full gap-2 bg-gradient-to-r from-brand-600 to-brand-400 text-white hover:opacity-90 sm:w-auto"
       >
         {status === "submitting" ? (
           <>

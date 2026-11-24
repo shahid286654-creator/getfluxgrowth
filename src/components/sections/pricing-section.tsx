@@ -59,7 +59,7 @@ export function PricingSection() {
                   className={cn(
                     "mt-8",
                     tier.highlighted
-                      ? "bg-gradient-to-r from-brand-500 to-brand-300 text-brand-950 hover:opacity-90"
+                      ? "bg-gradient-to-r from-brand-600 to-brand-400 text-white hover:opacity-90"
                       : "border-white/15 bg-white/5 hover:bg-white/10"
                   )}
                   variant={tier.highlighted ? "default" : "outline"}
@@ -116,7 +116,7 @@ export function PricingSection() {
                   </div>
                   <Button
                     asChild
-                    className="bg-gradient-to-r from-brand-500 to-brand-300 text-brand-950 hover:opacity-90"
+                    className="bg-gradient-to-r from-brand-600 to-brand-400 text-white hover:opacity-90"
                   >
                     <Link href="/contact">{addOn.cta}</Link>
                   </Button>

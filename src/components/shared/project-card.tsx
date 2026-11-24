@@ -7,7 +7,7 @@ import type { PortfolioProject } from "@/lib/data/portfolio";
 
 export function ProjectCard({ project }: { project: PortfolioProject }) {
   return (
-    <div className="glass-card flex h-full flex-col overflow-hidden rounded-2xl p-3 transition-all duration-300 hover:-translate-y-1 hover:border-brand-400/30 hover:shadow-[0_20px_60px_-20px_rgba(200,154,58,0.35)]">
+    <div className="glass-card flex h-full flex-col overflow-hidden rounded-2xl p-3 transition-all duration-300 hover:-translate-y-1 hover:border-brand-400/30 hover:shadow-[0_20px_60px_-20px_rgba(59,130,246,0.35)]">
       <ProjectThumbnail
         src={project.thumbnail}
         alt={`${project.title} homepage preview`}

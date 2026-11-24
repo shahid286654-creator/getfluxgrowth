@@ -29,7 +29,7 @@ export function FreeOfferSection() {
               <Button
                 asChild
                 size="lg"
-                className="mt-8 h-12 gap-2 bg-gradient-to-r from-brand-500 to-brand-300 px-7 text-base text-brand-950 shadow-[0_0_40px_-10px_rgba(200,154,58,0.55)] hover:opacity-90"
+                className="mt-8 h-12 gap-2 bg-gradient-to-r from-brand-600 to-brand-400 px-7 text-base text-white shadow-[0_0_40px_-10px_rgba(59,130,246,0.55)] hover:opacity-90"
               >
                 <Link href="/contact">
                   Claim My Free Audit

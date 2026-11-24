@@ -22,7 +22,7 @@ export function FounderPhoto({
   return (
     <div className={cn("relative mx-auto shrink-0", dimensions, className)}>
       <div className="pointer-events-none absolute -inset-6 rounded-full bg-gradient-to-br from-brand-500/40 via-brand-300/20 to-transparent blur-2xl" />
-      <div className="relative size-full rounded-full bg-gradient-to-br from-brand-400 via-brand-300 to-brand-600 p-[3px] shadow-[0_0_60px_-12px_rgba(200,154,58,0.5)]">
+      <div className="relative size-full rounded-full bg-gradient-to-br from-brand-400 via-brand-300 to-brand-600 p-[3px] shadow-[0_0_60px_-12px_rgba(59,130,246,0.5)]">
         <div className="relative size-full overflow-hidden rounded-full bg-background">
           {src ? (
             <Image
