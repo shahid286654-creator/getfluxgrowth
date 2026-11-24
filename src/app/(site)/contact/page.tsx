@@ -66,7 +66,7 @@ export default function ContactPage() {
             <div className="glass-card space-y-8 rounded-2xl p-8">
               <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:text-left">
                 <FounderPhoto
-                  src="/images/shahid-anwar.jpg"
+                  src="/media/images/shahid-anwar.jpg"
                   alt={founder.name}
                   size="md"
                 />

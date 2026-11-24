@@ -102,7 +102,7 @@ export default function AboutPage() {
           <FadeIn className="mt-14">
             <div className="glass-card grid grid-cols-1 items-center gap-10 rounded-3xl p-8 sm:p-12 lg:grid-cols-5">
               <div className="flex justify-center lg:col-span-2">
-                <FounderPhoto src="/images/shahid-anwar.jpg" alt={founder.name} />
+                <FounderPhoto src="/media/images/shahid-anwar.jpg" alt={founder.name} />
               </div>
               <div className="text-center lg:col-span-3 lg:text-left">
                 <h3 className="text-2xl font-semibold tracking-tight">
@@ -155,7 +155,107 @@ export default function AboutPage() {
         </Container>
       </section>
 
+      <section className="pb-24 sm:pb-32">
+        <Container className="mx-auto max-w-5xl">
+          <FadeIn>
+            <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+              <div>
+                <p className="text-sm font-medium tracking-widest text-brand-300 uppercase">
+                  Proof, not promises
+                </p>
+                <h2 className="mt-3 text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
+                  I grew my own site before I ever pitched yours
+                </h2>
+                <p className="mt-5 text-muted-foreground text-pretty">
+                  Before offering SEO to clients, I tested every tactic on{" "}
+                  <a
+                    href="https://fluxgrowth.io"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium text-foreground underline decoration-brand-400/50 underline-offset-4 hover:decoration-brand-300"
+                  >
+                    fluxgrowth.io
+                  </a>
+                  , my own site. Starting from zero, it now pulls in steady
+                  organic traffic from Google — no ads, no shortcuts. The same
+                  playbook is what I use for every business I work with.
+                </p>
+                <dl className="mt-8 grid grid-cols-3 gap-6 border-t border-white/10 pt-8">
+                  <div>
+                    <dt className="text-xs text-muted-foreground">Search clicks</dt>
+                    <dd className="mt-1 text-2xl font-semibold text-brand-300">10,133</dd>
+                  </div>
+                  <div>
+                    <dt className="text-xs text-muted-foreground">Timeframe</dt>
+                    <dd className="mt-1 text-2xl font-semibold">3 mo</dd>
+                  </div>
+                  <div>
+                    <dt className="text-xs text-muted-foreground">Ad spend</dt>
+                    <dd className="mt-1 text-2xl font-semibold">$0</dd>
+                  </div>
+                </dl>
+              </div>
+              <TrafficChart />
+            </div>
+          </FadeIn>
+        </Container>
+      </section>
+
       <CtaSection />
     </>
+  );
+}
+
+// shortcut: hand-traced from Google Search Console daily clicks (Aug–Nov 2026), update when numbers grow
+const dailyClicks = [
+  2, 4, 6, 10, 6, 8, 10, 6, 8, 5, 30, 15, 20, 28, 18, 25, 40, 42, 90, 230, 260,
+  350, 280, 200, 170, 200, 150, 130, 180, 220, 150, 180, 140, 210, 190, 240,
+  270, 300, 280, 265,
+];
+
+function TrafficChart() {
+  const w = 400;
+  const h = 220;
+  const max = Math.max(...dailyClicks);
+  const points = dailyClicks.map(
+    (v, i) => `${(i / (dailyClicks.length - 1)) * w},${h - (v / max) * (h - 10)}`,
+  );
+  const line = `M${points.join(" L")}`;
+
+  return (
+    <div className="glass-card rounded-3xl p-6 sm:p-8">
+      <div className="flex items-baseline justify-between">
+        <p className="text-sm font-medium">fluxgrowth.io — organic clicks</p>
+        <p className="text-xs text-muted-foreground">Google Search Console</p>
+      </div>
+      <svg
+        viewBox={`0 0 ${w} ${h}`}
+        className="mt-6 h-auto w-full text-brand-400"
+        role="img"
+        aria-label="Daily organic search clicks rising from near zero in August to around 300 per day by November 2026"
+      >
+        <defs>
+          <linearGradient id="traffic-fill" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="currentColor" stopOpacity="0.35" />
+            <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
+          </linearGradient>
+        </defs>
+        <path d={`${line} L${w},${h} L0,${h} Z`} fill="url(#traffic-fill)" />
+        <path
+          d={line}
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.5"
+          strokeLinejoin="round"
+          strokeLinecap="round"
+        />
+      </svg>
+      <div className="mt-3 flex justify-between text-xs text-muted-foreground">
+        <span>Aug</span>
+        <span>Sep</span>
+        <span>Oct</span>
+        <span>Nov</span>
+      </div>
+    </div>
   );
 }

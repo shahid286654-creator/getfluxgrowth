@@ -62,7 +62,7 @@ export function personSchema() {
     description: founder.bio,
     url: `${siteConfig.url}/about`,
     email: siteConfig.email,
-    image: `${siteConfig.url}/images/shahid-anwar.jpg`,
+    image: `${siteConfig.url}/media/images/shahid-anwar.jpg`,
     worksFor: { "@id": `${siteConfig.url}/#organization` },
     sameAs: [siteConfig.social.linkedin, siteConfig.social.instagram],
   };

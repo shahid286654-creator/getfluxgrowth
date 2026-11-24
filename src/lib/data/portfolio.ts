@@ -22,7 +22,7 @@ export const portfolioProjects: PortfolioProject[] = [
     category: "Business Website",
     tagline: "Modern business website with premium UI/UX.",
     url: "https://orientflame.netlify.app/",
-    thumbnail: "/portfolio/orient-flame.jpg",
+    thumbnail: "/media/portfolio/orient-flame.jpg",
     tech: ["React", "Vite", "Tailwind CSS"],
     challenge:
       "Most small business websites look generic and dated, so visitors bounce before they ever understand what the business actually offers or why they should trust it.",
@@ -43,7 +43,7 @@ export const portfolioProjects: PortfolioProject[] = [
     category: "Fitness & Gym",
     tagline: "High-converting fitness and gym website.",
     url: "https://beyondgym.netlify.app/",
-    thumbnail: "/portfolio/beyond-gym.jpg",
+    thumbnail: "/media/portfolio/beyond-gym.jpg",
     tech: ["React", "Vite", "Tailwind CSS"],
     challenge:
       "Gyms lose potential members when their website doesn't sell the experience or make it effortless to see plans, classes, and how to get started.",
@@ -64,7 +64,7 @@ export const portfolioProjects: PortfolioProject[] = [
     category: "Fitness & Gym",
     tagline: "Professional fitness brand website with responsive design.",
     url: "https://thexgyms.netlify.app/",
-    thumbnail: "/portfolio/the-x-gyms.jpg",
+    thumbnail: "/media/portfolio/the-x-gyms.jpg",
     tech: ["React", "Vite", "Tailwind CSS"],
     challenge:
       "A fitness brand needs a site that reflects its intensity and identity while staying fast and easy to navigate on any device a prospective member picks up.",
@@ -86,7 +86,7 @@ export const portfolioProjects: PortfolioProject[] = [
     tagline:
       "Restaurant website with modern layout and online ordering experience.",
     url: "https://falahchicken.netlify.app/",
-    thumbnail: "/portfolio/falah-chicken.jpg",
+    thumbnail: "/media/portfolio/falah-chicken.jpg",
     tech: ["React", "Vite", "Tailwind CSS"],
     challenge:
       "Restaurants lose orders when a website makes ordering food feel like a chore, especially on mobile, where most hungry customers are searching.",
@@ -106,7 +106,7 @@ export const portfolioProjects: PortfolioProject[] = [
     title: "AI Automation for Business",
     category: "AI Automation",
     tagline: "Concept build: AI lead qualification & CRM automation system.",
-    thumbnail: "/portfolio/ai-automation-suite.png",
+    thumbnail: "/media/portfolio/ai-automation-suite.png",
     tech: ["n8n", "OpenAI API", "CRM Integration", "Zapier"],
     badge: "Concept Build",
     challenge:
@@ -127,7 +127,7 @@ export const portfolioProjects: PortfolioProject[] = [
     title: "Real Estate Speed-to-Lead AI",
     category: "AI Automation",
     tagline: "Concept build: instant AI response and showing scheduler for property inquiries.",
-    thumbnail: "/portfolio/real-estate-speed-to-lead.png",
+    thumbnail: "/media/portfolio/real-estate-speed-to-lead.png",
     tech: ["OpenAI API", "Twilio", "CRM Integration", "Calendar API"],
     badge: "Concept Build",
     challenge:
@@ -148,7 +148,7 @@ export const portfolioProjects: PortfolioProject[] = [
     title: "Home Services Missed-Call Recovery",
     category: "AI Automation",
     tagline: "Concept build: AI text-back and booking system for missed service calls.",
-    thumbnail: "/portfolio/home-services-missed-call-recovery.png",
+    thumbnail: "/media/portfolio/home-services-missed-call-recovery.png",
     tech: ["OpenAI API", "Twilio", "Scheduling API", "CRM Integration"],
     badge: "Concept Build",
     challenge:
