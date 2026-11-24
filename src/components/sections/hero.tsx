@@ -16,7 +16,7 @@ const fadeUp: Variants = {
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden pt-16 pb-24 sm:pt-20 sm:pb-32">
+    <section className="relative overflow-clip pt-16 pb-24 sm:pt-20 sm:pb-32">
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute top-[20%] left-1/2 h-[40rem] w-[60rem] -translate-x-1/2 rounded-full glow-brand blur-3xl" />
         <div className="bg-stars absolute inset-0" />
