@@ -2,8 +2,11 @@
 
 import Link from "next/link";
 import { motion, type Variants } from "framer-motion";
-import { ArrowRight, Bot, TrendingUp } from "lucide-react";
+import { ArrowRight, MessageCircle, TrendingUp } from "lucide-react";
 import { Container } from "@/components/shared/container";
+import { useCurrency } from "@/components/providers/currency-provider";
+import { pricingTiers } from "@/lib/data/pricing";
+import { whatsappHref } from "@/lib/site";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 18 },
@@ -15,6 +18,9 @@ const fadeUp: Variants = {
 };
 
 export function Hero() {
+  const { currency } = useCurrency();
+  const starterPrice = pricingTiers.find((t) => t.highlighted)!.price[currency];
+
   return (
     <section className="relative overflow-clip pt-16 pb-24 sm:pt-20 sm:pb-32">
       <div className="pointer-events-none absolute inset-0 -z-10">
@@ -39,8 +45,8 @@ export function Hero() {
             variants={fadeUp}
             className="text-4xl font-light tracking-tight text-balance sm:text-5xl"
           >
-            Websites, SEO & AI that{" "}
-            <span className="text-gradient font-normal">turn visitors into clients</span>
+            Get your business on Google &{" "}
+            <span className="text-gradient font-normal">WhatsApp in 7 days</span>
           </motion.h1>
           <motion.p
             initial="hidden"
@@ -49,9 +55,9 @@ export function Hero() {
             variants={fadeUp}
             className="mt-6 max-w-sm text-muted-foreground text-pretty"
           >
-            I build lead-generating websites, rank them on Google, and automate
-            the follow-up — the same system that grew my own site to 10,000+
-            organic clicks.
+            I build fast websites and Google Maps listings for local businesses
+            that bring you calls, WhatsApp messages and bookings. Fixed prices,
+            from {starterPrice} — pay the rest only when you&apos;re happy.
           </motion.p>
           <motion.div
             initial="hidden"
@@ -60,12 +66,14 @@ export function Hero() {
             variants={fadeUp}
             className="mt-9 flex flex-wrap items-center gap-5"
           >
-            <PillLink href="/contact">Get free growth audit</PillLink>
+            <PillLink href={whatsappHref(undefined, currency)} external>
+              Chat on WhatsApp
+            </PillLink>
             <Link
-              href="#results"
+              href="/pricing"
               className="text-sm text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline"
             >
-              See the results
+              See prices
             </Link>
           </motion.div>
         </div>
@@ -139,24 +147,40 @@ function GlassStack() {
 
       <div className={`animate-float absolute top-[46%] left-[40%] h-[42%] w-[52%] rounded-3xl border border-white/30 bg-white/10 p-5 shadow-[0_30px_60px_-20px_rgba(59,130,246,0.6)] backdrop-blur-xl [animation-delay:-4s] ${tilt}`}>
         <div className="flex items-center gap-2 text-xs text-brand-100">
-          <Bot className="size-4" /> AI follow-up
+          <MessageCircle className="size-4" /> New WhatsApp enquiry
         </div>
-        <p className="mt-3 text-sm leading-snug">New lead answered instantly. Call booked automatically.</p>
+        <p className="mt-3 text-sm leading-snug">Customer found you on Google. Booking confirmed automatically.</p>
       </div>
     </div>
   );
 }
 
-export function PillLink({ href, children }: { href: string; children: React.ReactNode }) {
-  return (
-    <Link
-      href={href}
-      className="group glass inline-flex items-center gap-4 rounded-full py-2 pr-2 pl-6 text-sm font-medium transition-colors hover:border-brand-300/50 hover:bg-white/10"
-    >
+export function PillLink({
+  href,
+  external = false,
+  children,
+}: {
+  href: string;
+  external?: boolean;
+  children: React.ReactNode;
+}) {
+  const className =
+    "group glass inline-flex items-center gap-4 rounded-full py-2 pr-2 pl-6 text-sm font-medium transition-colors hover:border-brand-300/50 hover:bg-white/10";
+  const content = (
+    <>
       {children}
       <span className="flex size-9 items-center justify-center rounded-full bg-white text-brand-950 transition-transform group-hover:translate-x-0.5">
         <ArrowRight className="size-4" />
       </span>
+    </>
+  );
+  return external ? (
+    <a href={href} target="_blank" rel="noopener noreferrer" className={className}>
+      {content}
+    </a>
+  ) : (
+    <Link href={href} className={className}>
+      {content}
     </Link>
   );
 }

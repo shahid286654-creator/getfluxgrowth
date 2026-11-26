@@ -14,8 +14,8 @@ interface CtaSectionProps {
 }
 
 export function CtaSection({
-  title = "Ready to put your growth on autopilot?",
-  description = "Book a free automation audit and see exactly where AI can save your team the most time this quarter.",
+  title = "Ready to get more customers online?",
+  description = "Book a free 5-minute video audit and I'll show you exactly what's stopping customers from finding and contacting you.",
   primaryLabel = "Book a Strategy Call",
   primaryHref = "/contact",
   secondaryLabel = "Explore Services",
@@ -40,10 +40,17 @@ export function CtaSection({
               size="lg"
               className="h-12 gap-2 bg-gradient-to-r from-brand-600 to-brand-400 px-7 text-base text-white shadow-[0_0_40px_-10px_rgba(59,130,246,0.55)] hover:opacity-90"
             >
-              <Link href={primaryHref}>
-                {primaryLabel}
-                <ArrowRight className="size-4" />
-              </Link>
+              {primaryHref.startsWith("http") ? (
+                <a href={primaryHref} target="_blank" rel="noopener noreferrer">
+                  {primaryLabel}
+                  <ArrowRight className="size-4" />
+                </a>
+              ) : (
+                <Link href={primaryHref}>
+                  {primaryLabel}
+                  <ArrowRight className="size-4" />
+                </Link>
+              )}
             </Button>
             <Button
               asChild

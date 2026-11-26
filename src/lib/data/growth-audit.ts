@@ -1,7 +1,7 @@
 export const growthAuditItems: string[] = [
-  "Website Audit",
-  "SEO Audit",
-  "AI Automation Opportunities",
-  "Performance Review",
-  "Growth Recommendations",
+  "Google Maps listing check",
+  "Website speed & mobile check",
+  "WhatsApp & booking buttons",
+  "What competitors do better",
+  "A clear fix list with prices",
 ];

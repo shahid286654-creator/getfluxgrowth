@@ -12,14 +12,14 @@ import { CtaSection } from "@/components/sections/cta-section";
 import { ResultsSection } from "@/components/sections/results-section";
 import { companyValues } from "@/lib/data/values";
 import { founder } from "@/lib/data/founder";
-import { siteConfig } from "@/lib/site";
+import { siteConfig, whatsappHref } from "@/lib/site";
 import { buildMetadata } from "@/lib/metadata";
 import { breadcrumbSchema, personSchema } from "@/lib/schema";
 
 export const metadata: Metadata = buildMetadata({
   title: "About",
   description:
-    "GetFluxGrowth is an AI automation agency helping businesses find leads, automate workflows, and scale without adding headcount.",
+    "GetFluxGrowth is run by Shahid Anwar, who builds websites, Google Maps listings and AI follow-up systems for local businesses in Mauritius, India and worldwide.",
   path: "/about",
   keywords: ["AI Automation Agency", "About GetFluxGrowth", "Shahid Anwar"],
 });
@@ -41,9 +41,9 @@ export default function AboutPage() {
         <Container>
           <SectionHeading
             as="h1"
-            eyebrow="About Us"
-            title="We build the AI systems your team wishes it had time to build"
-            description="GetFluxGrowth was founded on a simple observation: most businesses don't have a lead problem, they have a time problem. We exist to give that time back."
+            eyebrow="About"
+            title="Hi, I'm Shahid. I help local businesses get found online."
+            description="GetFluxGrowth is me — one person you can WhatsApp directly. I build websites and Google listings that bring small businesses more calls, messages and bookings."
           />
         </Container>
       </section>
@@ -52,24 +52,25 @@ export default function AboutPage() {
         <Container className="mx-auto max-w-3xl">
           <FadeIn>
             <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-              Our story
+              My story
             </h2>
             <div className="mt-6 space-y-4 text-muted-foreground text-pretty">
               <p>
-                GetFluxGrowth started after years of watching sales and
-                operations teams drown in the same repetitive work: manually
-                researching prospects, copy-pasting data between tools, and
-                writing the same outreach messages over and over.
+                I taught myself to build websites and then used AI tools to go
+                much further — modern, fast sites, automations and SEO.
               </p>
               <p>
-                Large language models have finally gotten good enough to do
-                that work reliably — not replace judgment, but remove the
-                busywork standing between a team and its next customer.
+                Before selling this to anyone, I tested it on my own site,
+                fluxgrowth.io. In three months it went from about 2 visitors a
+                day from Google to more than 265 a day, without spending
+                anything on ads.
               </p>
               <p>
-                Today, GetFluxGrowth designs and builds custom AI automation
-                systems for businesses that want to grow without growing
-                their headcount at the same rate.
+                Now I do the same for local businesses — bakeries, salons,
+                gyms, clinics and restaurants — in Mauritius, India and beyond.
+                Many great businesses are invisible on Google or only reachable
+                through a Facebook page. I fix that, at a fixed price, and you
+                deal with me directly from start to finish.
               </p>
             </div>
           </FadeIn>
@@ -78,7 +79,7 @@ export default function AboutPage() {
 
       <section className="pb-24">
         <Container>
-          <SectionHeading eyebrow="Our Values" title="What guides how we build" />
+          <SectionHeading eyebrow="How I work" title="What you can expect from me" />
           <FadeInStagger className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {companyValues.map((value) => (
               <FadeInStaggerItem key={value.title}>
@@ -99,7 +100,7 @@ export default function AboutPage() {
 
       <section className="pb-24 sm:pb-32">
         <Container>
-          <SectionHeading eyebrow="Founder" title="The person behind your automation" />
+          <SectionHeading eyebrow="Founder" title="The person building your website" />
           <FadeIn className="mt-14">
             <div className="glass-card grid grid-cols-1 items-center gap-10 rounded-3xl p-8 sm:p-12 lg:grid-cols-5">
               <div className="flex justify-center lg:col-span-2">
@@ -134,7 +135,7 @@ export default function AboutPage() {
                     <LinkedinIcon className="size-4.5" />
                   </a>
                   <a
-                    href={siteConfig.whatsappLink}
+                    href={whatsappHref()}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="WhatsApp"

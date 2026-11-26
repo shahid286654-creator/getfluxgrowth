@@ -27,8 +27,8 @@ export function ContactForm() {
         </div>
         <h3 className="text-xl font-semibold">Message sent</h3>
         <p className="max-w-sm text-sm text-muted-foreground">
-          Thanks for reaching out — a member of our team will get back to you
-          within one business day.
+          Thanks for reaching out — I&apos;ll get back to you within one
+          business day. For a quicker reply, message me on WhatsApp.
         </p>
       </div>
     );
@@ -64,7 +64,7 @@ export function ContactForm() {
           id="message"
           name="message"
           rows={5}
-          placeholder="Tell us about your current workflow and what's taking up the most time..."
+          placeholder="Tell me your business name, where you are and what you need help with..."
           required
         />
       </div>

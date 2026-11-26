@@ -11,24 +11,24 @@ export const companyValues: CompanyValue[] = [
     icon: Target,
     title: "Outcomes over output",
     description:
-      "We measure success by hours saved and pipeline generated, not by how many workflows we ship.",
+      "I measure success by the calls, messages and bookings your website brings in — not by how it looks in a portfolio.",
   },
   {
     icon: ShieldCheck,
-    title: "Guardrails by default",
+    title: "Fixed prices, no surprises",
     description:
-      "Every AI system we build includes accuracy checks and human-in-the-loop escalation, so automation never means losing control.",
+      "You know the full price before I start. Pay 50% upfront and the rest only when you're happy.",
   },
   {
     icon: Gauge,
     title: "Move fast, stay transparent",
     description:
-      "You get a clear rollout timeline, plain-language reporting, and a direct line to the engineers building your system.",
+      "Most websites go live in 7 days, and you can WhatsApp me directly — no account managers, no middlemen.",
   },
   {
     icon: Users2,
-    title: "Built around your team",
+    title: "Built around your business",
     description:
-      "We design automation that fits how your team already works, not the other way around.",
+      "Everything fits how your customers already reach you — WhatsApp, calls, Google Maps and social media.",
   },
 ];

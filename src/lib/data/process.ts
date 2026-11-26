@@ -19,27 +19,27 @@ export const processSteps: ProcessStep[] = [
     icon: SearchCheck,
     title: "Discover",
     description:
-      "We map your current workflows, website, and search presence to find where automation and SEO will move the needle fastest.",
+      "I look at your current website, Google listing and social pages to find what's stopping customers from contacting you.",
   },
   {
     step: "02",
     icon: PenTool,
     title: "Plan",
     description:
-      "We design the blueprint — systems, integrations, and site architecture — and review it with you before anything is built.",
+      "I plan the pages, buttons and features you need, agree a fixed price with you, and only start once you're happy with the plan.",
   },
   {
     step: "03",
     icon: Cpu,
     title: "Build",
     description:
-      "Our engineers build and integrate your automation, website, or SEO system, tested against real data before launch.",
+      "I build your website or system myself and share a private preview link, so you can ask for changes before anything goes live.",
   },
   {
     step: "04",
     icon: Rocket,
     title: "Grow",
     description:
-      "We launch with monitoring in place, then keep iterating — expanding what's working as your business grows.",
+      "I launch it on your domain, set up Google, and stay on hand for updates as your business grows.",
   },
 ];

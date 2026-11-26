@@ -8,7 +8,7 @@ export function ProcessSection() {
     <section className="relative py-24 sm:py-32">
       <Container>
         <SectionHeading
-          eyebrow="Our Process"
+          eyebrow="My Process"
           title="A simple, four-step process"
           description="A proven, transparent process that takes your business from where it is today to a system that keeps generating growth."
         />

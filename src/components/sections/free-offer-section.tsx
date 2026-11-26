@@ -19,12 +19,12 @@ export function FreeOfferSection() {
                 Free Offer
               </span>
               <h2 className="mt-4 text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
-                Free AI & Website Growth Audit
+                Free 5-Minute Video Audit
               </h2>
               <p className="mt-4 max-w-xl text-base text-muted-foreground text-pretty sm:text-lg">
-                Book a free audit and get a clear, actionable picture of
-                where AI automation, your website, and your SEO could be
-                doing more for your business.
+                Send me your business name and I&apos;ll record a short video
+                showing exactly what&apos;s stopping customers from finding and
+                contacting you — and how to fix it.
               </p>
               <Button
                 asChild

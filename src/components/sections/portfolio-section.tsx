@@ -18,7 +18,7 @@ export function PortfolioSection() {
         <SectionHeading
           eyebrow="Portfolio"
           title="Featured Projects"
-          description="Self-directed demo projects — not client work — built to show how we design and develop real, conversion-focused websites."
+          description="Self-directed demo projects — not client work — built to show how I design and develop real, conversion-focused websites."
         />
 
         <FadeInStagger className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2">

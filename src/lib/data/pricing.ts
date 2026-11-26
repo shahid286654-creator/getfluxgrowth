@@ -1,87 +1,102 @@
+import type { Currency } from "@/lib/currency";
+
 export interface PricingTier {
   name: string;
-  price: string;
+  price: Record<Currency, string>;
   cadence: string;
   description: string;
   features: string[];
   highlighted?: boolean;
+  badge?: string;
   cta: string;
+  whatsappMessage: string;
 }
 
 export const pricingTiers: PricingTier[] = [
   {
-    name: "Starter",
-    price: "$1,500",
-    cadence: "/month",
+    name: "Google Maps Fix",
+    price: { MUR: "Rs 3,500", INR: "₹2,999", USD: "$79" },
+    cadence: "one-time",
     description:
-      "For businesses ready to automate their first workflow or launch a focused lead-gen system.",
+      "Get found on Google Maps and turn searches into calls. Ideal if you don't need a full website yet.",
     features: [
-      "One automated workflow or lead engine",
-      "Up to 500 leads sourced / month",
-      "Basic CRM integration",
-      "Monthly performance report",
-      "Email support",
+      "Google Business Profile set up or fixed",
+      "Right categories, hours and services",
+      "10 photos uploaded and optimised",
+      "WhatsApp and call buttons added",
+      "Review link + printable QR card",
+      "Done in 3 days",
     ],
-    cta: "Get Started",
+    cta: "Fix My Google Listing",
+    whatsappMessage: "Hi Shahid, I'd like the Google Maps Fix",
   },
   {
-    name: "Growth",
-    price: "$3,500",
-    cadence: "/month",
+    name: "Starter Website",
+    price: { MUR: "Rs 19,900", INR: "₹14,999", USD: "$449" },
+    cadence: "one-time",
     description:
-      "For teams that need multiple automations working together across sales and operations.",
+      "A fast, mobile-first website that brings you WhatsApp messages, calls and bookings. Live in 7 days.",
     features: [
-      "Up to 3 automated workflows or AI agents",
-      "Up to 2,000 leads sourced / month",
-      "Full CRM and tool-stack integration",
-      "Personalized outreach with A/B testing",
-      "Bi-weekly optimization reviews",
-      "Priority support",
+      "1–3 page mobile-first website",
+      "WhatsApp, call and map buttons",
+      "Menu, price list or services page",
+      "Contact form sent to your phone",
+      "Domain + hosting for 1 year included",
+      "Basic Google SEO setup",
+      "Live in 7 days",
     ],
     highlighted: true,
-    cta: "Book a Strategy Call",
+    badge: "Most Popular",
+    cta: "Start My Website",
+    whatsappMessage: "Hi Shahid, I'd like the Starter Website",
   },
   {
-    name: "Scale",
-    price: "Custom",
-    cadence: "",
+    name: "Website + Bookings",
+    price: { MUR: "Rs 34,900", INR: "₹27,999", USD: "$799" },
+    cadence: "one-time",
     description:
-      "For companies automating end-to-end operations across multiple teams or locations.",
+      "Everything in Starter, plus online bookings or orders and an instant WhatsApp auto-reply so you never miss a customer.",
     features: [
-      "Unlimited workflows and AI agents",
-      "Custom lead volume and enrichment pipelines",
-      "Dedicated automation engineer",
-      "Custom model fine-tuning and guardrails",
-      "Weekly reporting and roadmap planning",
-      "24/7 priority support",
+      "Everything in Starter Website",
+      "Online booking or order form",
+      "Instant WhatsApp / email auto-reply",
+      "Booking notifications to your phone",
+      "Google Maps Fix included",
+      "Up to 6 pages",
     ],
-    cta: "Talk to Us",
+    cta: "Get Bookings Online",
+    whatsappMessage: "Hi Shahid, I'd like the Website + Bookings package",
   },
 ];
 
-export interface AddOn {
-  name: string;
-  price: string;
-  cadence: string;
-  description: string;
-  features: string[];
-  cta: string;
-}
+export const carePlan: PricingTier = {
+  name: "Care Plan",
+  price: { MUR: "Rs 2,500", INR: "₹1,999", USD: "$59" },
+  cadence: "/month",
+  description:
+    "I look after your website and Google listing every month, so you can focus on your business. Cancel anytime.",
+  features: [
+    "Text, price and photo updates",
+    "4 Google posts per month",
+    "Replies to your Google reviews",
+    "Simple monthly report on calls and visits",
+  ],
+  badge: "Optional add-on",
+  cta: "Add the Care Plan",
+  whatsappMessage: "Hi Shahid, I'd like the Care Plan",
+};
 
-export const addOns: AddOn[] = [
-  {
-    name: "AI Automation for Business",
-    price: "$2,500",
-    cadence: "one-time setup",
-    description:
-      "A standalone build-out for businesses that just need one system done right — a custom AI agent or workflow wired into your existing tools, delivered as a one-time project instead of a monthly retainer.",
-    features: [
-      "One custom AI agent or automated workflow",
-      "Integration with your CRM, inbox, or scheduling tool",
-      "Lead qualification, follow-up, or reporting automation",
-      "Tested against your real data before handoff",
-      "30 days of post-launch support included",
-    ],
-    cta: "Add to My Project",
-  },
-];
+export const customQuoteMessage =
+  "Hi Shahid, I need AI automation or a bigger project. Can you give me a custom quote?";
+
+export const paymentMethods: Record<Currency, string> = {
+  MUR: "MCB Juice or bank transfer",
+  INR: "UPI or bank transfer",
+  USD: "Secure card payment link or international bank transfer",
+};
+
+export const currencyLabels: Record<Currency, string> = {
+  MUR: "Rs (Mauritius)",
+  INR: "₹ (India)",
+  USD: "$ (International)",
+};

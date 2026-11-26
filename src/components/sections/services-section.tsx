@@ -11,7 +11,7 @@ export function ServicesSection() {
       <Container>
         <SectionHeading
           eyebrow="Services"
-          title="Three ways we grow your business"
+          title="Three ways I grow your business"
           description="Every engagement is built around a clear business outcome — more leads, a better website, or higher rankings."
         />
 

@@ -3,13 +3,13 @@ import { Mail, MessageCircle } from "lucide-react";
 import { Container } from "@/components/shared/container";
 import { LinkedinIcon, InstagramIcon } from "@/components/shared/social-icons";
 import { Logo } from "@/components/shared/logo";
-import { siteConfig } from "@/lib/site";
+import { siteConfig, whatsappHref } from "@/lib/site";
 
 export function Footer() {
   return (
     <footer className="relative border-t border-white/10 bg-background">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-500/50 to-transparent" />
-      <Container className="py-12">
+      <Container className="pt-12 pb-28 sm:pb-12">
         <div className="flex flex-col items-center gap-8 text-center sm:flex-row sm:items-center sm:justify-between sm:text-left">
           <Link href="/" aria-label={siteConfig.name}>
             <Logo />
@@ -24,7 +24,7 @@ export function Footer() {
               {siteConfig.email}
             </a>
             <a
-              href={siteConfig.whatsappLink}
+              href={whatsappHref()}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 hover:text-foreground"

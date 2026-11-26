@@ -1,6 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { cookies, headers } from "next/headers";
 import { Navbar } from "@/components/layout/navbar";
+import { CurrencyProvider } from "@/components/providers/currency-provider";
+import { WhatsAppButton } from "@/components/shared/whatsapp-button";
+import { CURRENCY_COOKIE, detectServerCurrency } from "@/lib/currency";
 import { Footer } from "@/components/layout/footer";
 import { ScrollProgress } from "@/components/shared/scroll-progress";
 import { JsonLd } from "@/components/shared/json-ld";
@@ -77,11 +81,18 @@ export const viewport: Viewport = {
 };
 
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Reading the request makes every page dynamic; that's what lets prices follow the visitor.
+  const [cookieStore, headerStore] = await Promise.all([cookies(), headers()]);
+  const { currency, detectedOnServer } = detectServerCurrency(
+    cookieStore.get(CURRENCY_COOKIE)?.value,
+    (name) => headerStore.get(name)
+  );
+
   return (
     <html
       lang="en"
@@ -100,9 +111,12 @@ export default function RootLayout({
         <JsonLd data={professionalServiceSchema()} />
         <div className="pointer-events-none fixed inset-0 -z-10 bg-grid [mask-image:radial-gradient(ellipse_80%_60%_at_50%_-10%,black,transparent)]" />
         <ScrollProgress />
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <CurrencyProvider initialCurrency={currency} detectedOnServer={detectedOnServer}>
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <WhatsAppButton />
+        </CurrencyProvider>
       </body>
     </html>
   );

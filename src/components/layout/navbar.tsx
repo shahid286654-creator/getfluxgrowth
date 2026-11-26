@@ -15,11 +15,14 @@ import {
 } from "@/components/ui/sheet";
 import { Container } from "@/components/shared/container";
 import { Logo } from "@/components/shared/logo";
-import { navLinks, siteConfig } from "@/lib/site";
+import { WhatsAppIcon } from "@/components/shared/social-icons";
+import { useCurrency } from "@/components/providers/currency-provider";
+import { navLinks, siteConfig, whatsappHref } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
   const pathname = usePathname();
+  const { currency } = useCurrency();
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -43,7 +46,7 @@ export function Navbar() {
           <Logo />
         </Link>
 
-        <nav className="hidden items-center gap-1 md:flex">
+        <nav className="hidden items-center gap-1 lg:flex">
           {navLinks.map((link) => {
             const active =
               link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
@@ -64,19 +67,22 @@ export function Navbar() {
           })}
         </nav>
 
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-3 lg:flex">
           <Button
             asChild
             size="sm"
             className="bg-gradient-to-r from-brand-600 to-brand-400 text-white shadow-[0_0_0_1px_rgba(255,255,255,0.08)] hover:opacity-90"
           >
-            <Link href="/contact">Book a Strategy Call</Link>
+            <a href={whatsappHref(undefined, currency)} target="_blank" rel="noopener noreferrer">
+              <WhatsAppIcon className="size-4" aria-hidden="true" />
+              Chat on WhatsApp
+            </a>
           </Button>
         </div>
 
         <Sheet>
           <SheetTrigger asChild>
-            <Button variant="ghost" size="icon" className="md:hidden" aria-label="Open menu">
+            <Button variant="ghost" size="icon" className="lg:hidden" aria-label="Open menu">
               <Menu className="size-5" />
             </Button>
           </SheetTrigger>
@@ -100,7 +106,10 @@ export function Navbar() {
                   asChild
                   className="mt-4 bg-gradient-to-r from-brand-600 to-brand-400 text-white"
                 >
-                  <Link href="/contact">Book a Strategy Call</Link>
+                  <a href={whatsappHref(undefined, currency)} target="_blank" rel="noopener noreferrer">
+                    <WhatsAppIcon className="size-4" aria-hidden="true" />
+                    Chat on WhatsApp
+                  </a>
                 </Button>
               </SheetClose>
             </nav>

@@ -5,38 +5,38 @@ export interface FaqItem {
 
 export const faqItems: FaqItem[] = [
   {
-    question: "What exactly does an AI automation agency do?",
+    question: "What exactly do you do?",
     answer:
-      "We design, build, and maintain custom AI systems that take over repetitive or manual work — like finding new leads, auditing websites, writing outreach, or moving data between tools — so your team can focus on higher-value work.",
+      "I build fast websites and Google Maps listings for local businesses — bakeries, salons, gyms, clinics and restaurants — so customers can find you on Google and contact you by WhatsApp, phone or online booking.",
   },
   {
-    question: "Do I need any technical knowledge to work with GetFluxGrowth?",
+    question: "Do I need any technical knowledge to work with you?",
     answer:
-      "No. We handle the architecture, integrations, and ongoing maintenance. You'll get a clear rollout plan, simple dashboards, and regular reporting in plain language — no engineering background required.",
+      "No. I handle the domain, hosting, setup and your Google listing. You tell me about your business and check the private preview link before anything goes live.",
   },
   {
-    question: "How long does it take to launch an automation?",
+    question: "How long does it take?",
     answer:
-      "Most single-workflow projects launch within 2-4 weeks of kickoff, from discovery through testing. Larger multi-system builds typically take 6-10 weeks depending on integration complexity.",
+      "A Google Maps Fix is done in 3 days. Most websites go live in 7 days once I have your details and photos.",
   },
   {
-    question: "Which tools and platforms do you integrate with?",
+    question: "How do I pay?",
     answer:
-      "We regularly integrate with popular CRMs (HubSpot, Salesforce, Pipedrive), email and calendar platforms, spreadsheets, and custom internal tools via API. If your stack isn't listed, we can almost always still connect to it.",
+      "You pay 50% to start and the rest only when you're happy with your website. In Mauritius you can pay by MCB Juice or bank transfer, in India by UPI or bank transfer, and anywhere else by a secure card payment link or international bank transfer.",
   },
   {
-    question: "Will the AI actually sound like our brand?",
+    question: "Are the domain and hosting included?",
     answer:
-      "Yes. Every outreach and chatbot system is trained on your existing voice, documentation, and past communications, then reviewed by our team before launch to make sure it matches how your business actually talks to customers.",
+      "Yes. The Starter Website and Website + Bookings packages include your domain and hosting for the first year.",
   },
   {
     question: "What happens after launch?",
     answer:
-      "Every plan includes ongoing monitoring and optimization. We track performance, retrain and adjust prompts as needed, and meet with you regularly to identify the next highest-impact automation opportunity.",
+      "You can WhatsApp me any time. If you'd like me to keep everything up to date, the optional Care Plan covers text, price and photo updates, Google posts and replies to your reviews every month — cancel anytime.",
   },
   {
-    question: "Is my business's data secure?",
+    question: "Can you build AI automation or bigger projects?",
     answer:
-      "Yes. We use encrypted connections for every integration, scope access to only what each automation needs, and never use your business data to train models for anyone outside your organization.",
+      "Yes. I also build AI automations like instant WhatsApp replies, lead follow-up and custom workflows. Message me on WhatsApp with what you need and I'll give you a custom quote.",
   },
 ];

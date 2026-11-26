@@ -8,9 +8,9 @@ export function WhyChooseUsSection() {
     <section className="py-24 sm:py-32">
       <Container>
         <SectionHeading
-          eyebrow="Why Choose Us"
+          eyebrow="Why work with me"
           title="Built for outcomes, not busywork"
-          description="Everything we build is judged by one thing: the measurable difference it makes to your business."
+          description="Everything I build is judged by one thing: the measurable difference it makes to your business."
         />
 
         <FadeInStagger className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">

@@ -8,7 +8,7 @@ import { LinkedinIcon } from "@/components/shared/social-icons";
 import { JsonLd } from "@/components/shared/json-ld";
 import { ContactForm } from "@/components/sections/contact-form";
 import { founder } from "@/lib/data/founder";
-import { siteConfig } from "@/lib/site";
+import { siteConfig, whatsappHref } from "@/lib/site";
 import { buildMetadata } from "@/lib/metadata";
 import { breadcrumbSchema } from "@/lib/schema";
 
@@ -31,7 +31,7 @@ const contactDetails = [
     icon: MessageCircle,
     label: "WhatsApp",
     value: siteConfig.whatsappDisplay,
-    href: siteConfig.whatsappLink,
+    href: whatsappHref(),
   },
   {
     icon: LinkedinIcon,
@@ -57,8 +57,8 @@ export default function ContactPage() {
         <SectionHeading
           as="h1"
           eyebrow="Contact"
-          title="Book your free automation audit"
-          description="Tell us a bit about your business and where time is disappearing. We'll come back with a clear picture of what AI automation could do for you."
+          title="Get your free 5-minute video audit"
+          description="Tell me your business name and where you are. I'll record a short video showing what's stopping customers from finding and contacting you — free, no obligation. Quickest reply: WhatsApp."
         />
 
         <div className="mt-16 grid grid-cols-1 gap-10 lg:grid-cols-5 lg:items-start">
@@ -93,8 +93,8 @@ export default function ContactPage() {
                       {detail.href ? (
                         <a
                           href={detail.href}
-                          target={detail.label === "LinkedIn" ? "_blank" : undefined}
-                          rel={detail.label === "LinkedIn" ? "noopener noreferrer" : undefined}
+                          target={detail.href.startsWith("http") ? "_blank" : undefined}
+                          rel={detail.href.startsWith("http") ? "noopener noreferrer" : undefined}
                           className="text-sm font-medium text-foreground hover:text-brand-300"
                         >
                           {detail.value}
